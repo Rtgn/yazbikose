@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Profil Sayfası|{{ username }}</title>
+        <meta name="description" content="Profil Sayfası">
+        <meta name="keywords" content="Profilsayfası, gönderiler,takipçi">
+        <meta name="robots" content="index, follow">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='menu.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+	</head>
+
+	<body>
+		<header>
+            <div class = "container" id="container">
+                <div class = "logo" id="logo">
+                    <h1><a href="{{ url_for('index') }}">yazbiköşe</a></h1>
+                </div>
+                <nav id="menu">
+                    <ul class="menu" >
+                        <li><a href="{{ url_for('index') }}">Anasayfa</a></li>
+                        <li><a href="{{ url_for('neler_var') }}" class="active">Katagoriler</a></li>
+                        <li href="#link"><a href="{{ url_for('other_page') }}">Diğer</a></li>
+                    </ul>
+                </nav>
+                
+                
+                <div class="log-in-out" id="log-in-out">
+                   
+                        {{ linkp|safe }}
+               
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu">
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Anasayfa</a></li>
+                    <li><a href="{{ url_for('neler_var') }}">Katagoriler</a></li>
+                    <li><a href="{{ url_for('other_page') }}">Diğer</a></li>
+                </ul>
+            </div>
+        </header>  
+
+
+        <br><br><br><br><br>
+        
+        <div class="profile-infos">
+
+            <div class="profile-picture">
+                <img src="{{ url_for('static', filename='profil_pictures/' + profile_image) }}" alt="">
+            </div>
+
+            <div class="profile-username">
+                <span>{{ username }}</span>
+            </div>
+
+            <div class="profile-hakkinda">
+                <p class="hakkinda">
+                    {{ hakkinda }}
+                </p>
+            </div>
+
+            <div class="fal-send-like">
+
+                <div class="gonderi-sayisi">
+                    <span class="number" id="g-number">{{ total_content }}</span>
+                    <span class="gonderi">Gönderi</span>
+                </div>
+
+                <div class="fallowers">
+                    <span class="number" id="f-number">{{ follower_count }}</span>
+                    <span class="takipci">Takipçi</span>
+                </div>
+
+                <div class="liked-number">
+                    <span class="number" id="l-number">{{ total_likes }}</span>
+                    <span class="begeni">Beğeni</span>
+                </div>
+
+            </div>
+
+            <div class="profile-duzenle">
+                <a id="follow-button" data-followed="{{ username }}" data-follower="{{ p_username }}" href="javascript:void(0);">{{ follow_button_text }}</a>
+            </div>
+
+            <div class="profil-secenekler">
+	
+                <a href="{{ url_for('public_profile_viewer', username=username) }}" class="active">Gonderiler</a>
+
+
+			</div>
+
+        </div>
+
+        <div class="profilecontents">
+       
+          
+            <div class="contents">
+                {% for content in icerik_links %}
+                    {{ content | safe }}
+                {% endfor %}
+            </div>
+            
+        </div>
+
+
+        <footer>
+            <div class="footer-container">
+                <div class="footer-left">
+                    <h3>Kategoriler</h3>
+                    <div class="categories-footer">
+                        <a href="{{ url_for('category_viewer', category_name='Kitap') }}">Kitap</a>
+                        <a href="{{ url_for('category_viewer', category_name='Yazılım') }}">Yazılım</a>
+                        <a href="{{ url_for('category_viewer', category_name='Teknoloji') }}">Teknoloji</a>
+                        <a href="{{ url_for('category_viewer', category_name='KısaHikaye') }}">Kısa Hikaye</a>
+                        <a href="{{ url_for('category_viewer', category_name='DiziFilm') }}">Dizi/Film</a>
+                        <a href="{{ url_for('category_viewer', category_name='TavsiyeÖneri') }}">Tavsiye/Öneri</a>
+                        <a href="{{ url_for('category_viewer', category_name='Sağlık') }}">Sağlık</a>
+                        <a href="{{ url_for('category_viewer', category_name='Günce') }}">Günlük</a>
+                        <a href="{{ url_for('category_viewer', category_name='Magazin') }}">Magazin</a>
+                        <a href="{{ url_for('category_viewer', category_name='YabancıDil') }}">Yabancı Dil</a>
+                        <a href="{{ url_for('category_viewer', category_name='Eğitim') }}">Eğitim</a>
+                        <a href="{{ url_for('category_viewer', category_name='SanatKültür') }}">Sanat/Kültür</a>
+                        <a href="{{ url_for('category_viewer', category_name='Bilim') }}">Bilim</a>
+                        <a href="{{ url_for('category_viewer', category_name='KisiselGelisim') }}">Kişisel Gelişim</a>
+                        <a href="{{ url_for('category_viewer', category_name='Oyun') }}">Oyun</a>
+                        <a href="{{ url_for('category_viewer', category_name='Seyehat') }}">Seyehat</a>
+                    </div>
+                </div>
+                <div class="footer-middle">
+                    <h3>Diğer</h3>
+                    <a href="{{ url_for('other_page') }}">Neler Var</a>
+                    <a href="{{ url_for('other_page') }}">İşbirliği</a>
+                    <a href="{{ url_for('other_page') }}">İletişim</a>
+                </div>
+                <div class="footer-right">
+                    <h3>Site Adı</h3>
+                    <div class="instagram">
+                        <img src="{{ url_for('static', filename='pictures/insta_logo2.png') }}" alt="Instagram">
+                        <p>@adres</p>
+                    </div>
+                    <p><i class="fa-regular fa-envelope"></i> info@siteadi.com</p>
+                    <div class="subscribe">
+                        <button><a href="{{ url_for('login') }}">Yazmaya Başla!</a></button>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
+      
+
+        
+
+        
+        <script>
+
+            
+            document.addEventListener('DOMContentLoaded', function() {
+                document.getElementById("follow-button").addEventListener("click", function(event) {
+                    event.preventDefault(); // Sayfanın yeniden yüklenmesini önler
+    
+                    if (this.innerText == "Takip Et!") {
+                        this.innerText = "Takipten Çık!";
+                    } else {
+                        this.innerText = "Takip Et!";
+                    }
+            
+                    // Takip edilen ve takip eden kullanıcıları al
+                    const followed = this.getAttribute('data-followed');  // Takip edilen kullanıcı
+                    const follower = this.getAttribute('data-follower');  // Takip eden kullanıcı
+            
+                    // URL oluştur
+                    
+            
+                    // Fetch API ile POST isteği yap
+                    fetch('/Fallow', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-Token': '{{ csrf_token() }}'
+                        },
+                        body: JSON.stringify({
+                            followed: followed,
+                            follower: follower
+                        }),
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            console.log("Takip durumu güncellendi.");
+                        } else {
+                            alert('Önce giriş Yapmalısınız.');
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+                });
+            });
+
+
+            document.addEventListener('DOMContentLoaded', function() {
+                const hamburger = document.getElementById('hamburger');
+                
+                if (hamburger) {
+                    hamburger.addEventListener('click', function() {
+                        const dropdownMenu = document.getElementById('dropdown-menu');
+                        
+                        // Menüyü açmak için `open` sınıfını ekliyoruz
+                        dropdownMenu.classList.toggle('open');
+                    });
+                }
+            });
+            
+
+        </script>
+	</body>
+</html>

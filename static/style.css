@@ -1,0 +1,967 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+* {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.profilecontents{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    color: #1F0D05;
+    margin-left: 5%;
+}
+
+
+
+
+.contents{
+    margin-top: 5%;
+    display: flex;
+    flex-wrap: wrap; /* İçerikleri sarar ve alt alta geçişe izin verir */
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+}
+
+
+
+
+.time-ago{
+    padding-right: 2%;
+}
+
+.begeni2{
+    padding-right: 2%;
+}
+.liked-number2 {
+    display: flex;
+
+    align-items: center;
+}
+.liked-number2 span {
+ margin: 2px;
+}
+
+
+
+
+
+.content-g{
+    display: flex;
+    flex-direction: column;
+    width: 30%; 
+    position: relative;
+    margin-bottom: 10px;
+}
+.content_image {
+    display: flex;
+    justify-content: center; /* Yatayda ortalar */
+    align-items: center;    /* Dikeyde ortalar */
+    height: auto;
+}
+.content_image a img{
+    width: 100%; /* Konteyner genişliğini doldurur */
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    overflow: hidden;
+
+}
+.content_title {
+    font-family: "Ubuntu", sans-serif;
+}
+
+
+.kaldir {
+    display: flex;
+    width: 100%;
+    color:#fff;
+    background-color: #1F0D05;
+    justify-content: center;
+    border-radius: 50px;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-top: 2%;
+}
+
+.content-etiket {
+    box-sizing: border-box;
+    padding-top: 3%;
+    display: flex;
+    width: 100%;
+    white-space: nowrap; 
+    padding-bottom: 3%;
+    border-bottom: 1px solid black;          /* Alta geçmeyi engelle */
+}
+
+.etiketler {   
+    display: inline-block;         /* Etiketler yan yana dizilir */    
+    width:30% ;
+    margin-left: 2%;
+    border-radius: 5px;            /* Kenarları yuvarla */
+    font-size: 0.9rem;   
+    box-sizing: border-box; 
+    background-color: #F0E4D7;  
+          /* Yazı boyutu */
+}
+
+
+.etiketler a {
+    
+    justify-content: center;
+    display: flex;
+    
+    box-sizing: border-box;
+    padding: 5px;
+    font-size: 0.8rem;
+    border-radius: 20%;
+}
+/* Responsive için media query */
+@media (max-width: 768px) {
+
+    .etiketler a {  
+        font-size: 0.5rem;   
+    }
+
+    .content-title{
+
+        font-size: 0.8rem;
+    
+    }
+
+}
+
+
+
+.login {
+    width: 100%;
+    position: absolute;
+
+}
+form{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.login, .register {
+    width: 60%;
+    margin-left: 20%;
+    background-color: #ffffff;
+    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+    margin-top: 150px;
+
+}
+.login h1, .register h1 {
+    text-align: center;
+    color: #5b6574;
+    font-size: 24px;
+    padding: 20px 0 20px 0;
+    border-bottom: 1px solid #dee0e4;
+}
+.login .links, .register .links {
+    display: flex;
+    padding: 0 15px;
+}
+.login .links a, .register .links a {
+    color: #adb2ba;
+    text-decoration: none;
+    display: inline-flex;
+    padding: 0 10px 10px 10px;
+    font-weight: bold;
+}
+.login .links a:hover, .register .links a:hover {
+    color: #9da3ac;
+}
+.login .links a.active, .register .links a.active {
+    border-bottom: 3px solid #4d9c9c;
+    color: #4d9c9c;
+}
+.login form, .register form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 20px;
+}
+.login form label, .register form label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: #4d9c9c;
+    color: #ffffff;
+}
+.login form input[type="password"], .login form input[type="text"], .login form input[type="email"], .register form input[type="password"], .register form input[type="text"], .register form input[type="email"] {
+    width: 310px;
+    height: 50px;
+    border: 1px solid #dee0e4;
+    margin-bottom: 20px;
+    padding: 0 15px;
+}
+.login form input[type="submit"], .register form input[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    background-color: #4d9c9c;
+    border: 0;
+    cursor: pointer;
+    font-weight: bold;
+    color: #ffffff;
+    transition: background-color 0.2s;
+}
+.login form input[type="submit"]:hover, .register form input[type="submit"]:hover {
+    background-color: #4d9c9c;
+    transition: background-color 0.2s;
+}
+.navtop {
+    background-color: #dee0e4;
+    height: 60px;
+    width: 100%;
+    border: 0;
+    margin: 0;
+    position: fixed;
+}
+.profil-menu div {
+    display: flex;
+    margin: 0 auto;
+    width: 1000px;
+    height: 100%;
+}
+.profil-menu div h1 a, .profil-menu a {
+    display: inline-flex;
+    align-items: center;
+}
+.navtop div h1 {
+    flex: 1;
+    font-size: 30px;
+    padding: 0;
+    margin: 0;
+    color: black;
+    font-weight: normal;
+    font-family: "Ubuntu", sans-serif;
+}
+.profil-menu a {
+    padding: 0 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.profil-menu a i {
+    padding: 2px 8px 0 0;
+}
+.profil-menu a:hover {
+    color: #eaebed;
+}
+body.loggedin {
+    background-color: #f3f4f7;
+}
+.all-profile{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.plus-draft-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    border: none;
+}
+.content {
+    margin-top: 10%;
+    width: 70%;
+    margin-left: 15%;
+    
+}
+.content h2 {
+    margin: 0;
+    font-size: 22px;
+    border-bottom: 1px solid #e0e0e3;
+    color: #1F0D05;
+}
+.content > p, .content > div {
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+    margin: 25px 0;
+    padding: 25px;
+    background-color: #fff;
+}
+.content > p table td, .content > div table td {
+  padding: 5px;
+}
+.content > p table td:first-child, .content > div table td:first-child {
+  font-weight: bold;
+  color: #4a536e;
+  padding-right: 15px;
+}
+.content > div p {
+  padding: 5px;
+  margin: 0 0 10px 0;
+}
+
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: none;
+}
+a{
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+
+
+body {
+    font-family: Arial,sans-serif;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.container{
+    
+    display: flex; /* İçerik hizalaması için */
+    background-color: rgba(0, 0, 0, 0.9);
+    color: antiquewhite; 
+    gap: 5%;
+    top:0;
+    
+    position: absolute;/*Header içinde özgürce konumlanacak*/
+    width: 100%;
+    height: 12%;
+    transition: all 0.5s ease-in;
+    z-index: 1;
+
+
+  
+}
+.scrolled_mc {
+    background-color: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    width : 100%;
+    height: 9%;
+    
+}
+
+.logo{
+    float: left; 
+    width: 20%;
+    margin-left: 3%;
+    margin-top: 0.9%;
+    transition: all 0.5s ease-in;
+    font-family: "Ubuntu", sans-serif;
+}
+.logo.scrolled_ls h1 a {
+    font-size: 2.2rem;
+}
+.logo.scrolled_ls{
+    margin-top: 1.1%;
+}
+.logo h1{
+    margin:0;
+}
+.logo h1 a{
+    font-size: 2.5rem;
+    color:aliceblue;
+    transition: all 0.5s ease-in;
+}
+nav {
+    width: 40%;
+    transition: all 0.5s ease-in;
+    margin-top:0.9%;
+
+}
+.menu {
+    margin: 0;
+    
+}
+
+.menu li{
+    float:left;
+    margin:10px;
+    margin-left: 10%;
+    transition: all 0.5s ease-in;
+}
+
+.menu li a{
+    font-family: "Ubuntu", sans-serif;
+    font-size: 1.5rem;
+    color: aliceblue;
+    display: block;/*Sadece metin alanına değil tüm link alanını tıklanabilir yaparsın*/
+}
+.menu li a:hover{
+    color: #4d9c9c;
+}
+.scrolled_mi .menu li  {
+    margin-left: 15%;
+}
+.scrolled_mi {
+    width: 50%;
+    margin-top: 0.6%;
+}
+.profile-image-container{
+    width: 50px;
+    height: 50px;
+
+    float: left;
+    height: auto;
+    overflow: hidden; /* Taşan içeriği gizler */
+     /* Kapsayıcıyı yuvarlak yapar */
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin-left: 15%;
+
+}
+.profile-image {
+    width: 45px;
+    height: 45px;
+    object-fit: cover; /* Resmi kapsayıcıya sığacak şekilde ayarlar */
+    border-radius: 50%; /* Resmi yuvarlak yapar */
+}
+
+
+.profile{
+    width: 24%;
+    float: left;
+    margin-top: 3%;
+
+  
+}
+.username span{
+
+    font-size: 2rem;
+    font-family: "Ubuntu", sans-serif;
+ 
+}
+.username{ 
+    margin-left: 5%;
+    margin-top: 4%;
+    float: left;
+    width: 60%;
+}
+
+.log-in-out{
+    width: 24%;
+    float: left;
+    margin-top: 1%;
+}
+.log-in-out span a{
+    color: aliceblue;
+    float: left;
+    margin-left: 50%;
+    margin-top: 3%;
+    font-size: 1.4rem;
+    transition: all 0.5s ease-in;
+    font-family: "Ubuntu", sans-serif;
+}
+.scrolled_lio span a{
+    font-size: 1.3rem;
+    margin-left: 50%;
+
+}
+
+.end-section {
+    margin-top: 800px;
+    width: 100%;
+    height: auto;
+    background-color: #214141;
+    text-align: center;
+    position: absolute;
+ 
+}
+
+
+
+
+
+
+
+
+.draftlink{
+    display: inline-block;            
+    justify-content: center; 
+    align-items: center;     
+    background-color: #888;
+    text-align: center;
+    padding: 5px;       
+    
+    margin-left: 5%;
+    color: white;            
+    text-decoration: none;
+    border-radius: 3px;  
+    margin-bottom: 20px; 
+}
+.cc{
+    display: inline-block;             
+    justify-content: center; 
+    align-items: center;     
+    background-color: #888;
+    text-align: center;
+    padding: 5px;       
+    width: 10%;
+    margin-left: 5%;
+    color: white;  
+    margin-bottom: 20px;          
+    text-decoration: none;
+    border-radius: 3px;   
+    
+}
+
+.layout {
+    background-color: #dee0e4;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-container {
+    display: flex;
+    justify-content: space-between; /* SiteAdı sola, Logout sağa */
+    align-items: center;
+    width: 100%;
+}
+
+.p-logo {
+    width: 50%;
+    display: block;
+    margin-left: 0; /* En sola yapıştır */
+}
+
+.p-logo h1 {
+    margin: 0;
+    
+}
+
+.p-logo h1 a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.5rem;
+}
+
+.p-logout {
+    width: 50%;
+
+    margin-right: 0; /* En sağa yapıştır */
+    text-decoration: none;
+    color: #333;   
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.p-logout i {
+    margin-right: 5px;
+}
+.p-logout a {
+    display: flex;
+    width: 50%;
+    display: block;
+}
+.filter-container {
+    position: relative;
+    display: inline-block;
+    
+}
+.fa-filter{
+    font-size: 1.5rem;
+
+}
+.filter-button{
+    font-size: 1.9rem;
+
+    padding: 20px;
+    box-sizing: border-box;
+
+}
+.fa-filter{
+    color: #333;
+    
+}
+.filter-button {
+    cursor: pointer;
+    margin-left: 5px;
+
+    padding: 5px;
+    font-size: 16px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.filter-options {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0 1px 0 rgba(0, 0, 0, 0.02);
+    padding: 10px;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.filter-options .option {
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.filter-options .option:hover {
+    background-color: #f1f1f1;
+}
+
+.category-options {
+    display: none;
+    margin-top: 10px;
+    padding-left: 10px;
+    background-color: #f9f9f9;
+    
+}
+
+.category-options label {
+    display: block;
+    padding: 5px 0;
+}
+.filter-options .option {
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.filter-options .option:hover {
+    background-color: #f1f1f1;
+}
+
+.show {
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+.profile-infos {
+    width: 90%;
+    margin-left: 5%;
+    background-color: #ffffff;
+    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+    margin-top: 40px;    
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-picture{
+    width: 120px;  /* Varsayılan genişlik */
+    height: 120px; /* Varsayılan yükseklik */
+    border-radius: 50%; /* Kapsayıcıyı dairesel hale getirir */
+    overflow: hidden; /* Resmin dışarı taşmasını engeller */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto; /* Ortalar */
+    margin-top: 3%;
+
+}
+.profile-picture img {
+    overflow: hidden;
+    width: 100%;  /* Resim kapsayıcı genişliği kadar genişler */
+    height: 100%; /* Resim kapsayıcı yüksekliği kadar genişler */
+    object-fit: cover; /* Resim kapsayıcıya sığacak şekilde ayarlanır */
+    border-radius: 50%; /* Resmi yuvarlak yapar */
+}
+
+.profile-username {
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto; /* Ortalar */
+    margin-top: 3%;
+}
+
+.profile-username span{
+    font-size: 2rem;
+}
+.profile-hakkinda{
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto; /* Ortalar */
+    margin-top: 2%;
+    width: 450px;
+}
+
+.hakkinda{
+    font-size: 1.1rem;
+
+}
+.contents{
+    background-color: #ffffff;
+    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+    padding: 10px;
+    
+}
+.profile-duzenle{
+    justify-content: center;
+    align-items: center;
+    
+    margin: 0 auto; /* Ortalar */
+    background-color: #1F0D05;
+    padding: 10px;
+
+}
+.profile-duzenle:hover{
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.9);
+
+}
+.profile-duzenle a{
+    color: #fff;
+}
+.profil-secenekler {
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto; /* Ortalar */
+    display: flex;
+    padding: 0 20px;
+    margin-top: 5%;
+}
+.profil-secenekler a{
+    color: #adb2ba;
+    text-decoration: none;
+    display: inline-flex;
+    padding: 0 30px 10px 30px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.profil-secenekler a:hover{
+    color: #9da3ac;
+}
+.profil-secenekler a.active{
+    border-bottom: 3px solid #1F0D05;
+    color: #1F0D05;
+}
+
+
+.fal-send-like{
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto; /* Ortalar */
+    display: flex;
+    margin-top: 2%;
+    justify-content: space-between;
+
+}
+.gonderi-sayisi, .fallowers, .liked-number{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 15px;
+    align-items: center;
+}
+
+/* Responsive ayarlar */
+@media (max-width: 768px) {
+    .profile-picture {
+        width: 150px;
+        height: 150px;
+    }
+    .profile-hakkinda{
+        width: 350px;
+    }
+    .hakkinda{
+        font-size: 1rem;
+    
+    }
+    .profile-duzenle{
+        padding: 5px;
+    
+    }
+    .profile-duzenle a{
+        font-size: 1.2rem;
+    
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-picture {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+
+
+
+
+
+.form-container {
+    width: 50%;
+    margin: 0 auto;
+    background-color: #f4f4f9;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    transition: width 0.3s ease;
+}
+
+.form-container h2 {
+    text-align: center;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    
+}
+
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+
+}
+
+.form-group input[type="text"],
+.form-group input[type="file"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="file"]:focus,
+.form-group textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+textarea {
+    resize: none;
+}
+
+.form-group button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-group button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+    .form-container {
+        width: 70%;
+    }
+}
+
+@media (max-width: 576px) {
+    .form-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .form-group button[type="submit"] {
+        font-size: 14px;
+    }
+}
+
+/* 480px ve altındaki ekranlar için tek sütun */
+@media (max-width: 480px) {
+    .content-g {
+        width: 100%; /* Tek sütun için genişlik */
+    }
+    .content_title {
+        font-size: 1rem; /* Küçük ekran için daha küçük font boyutu */
+    }
+    .content_creator {
+        font-size: 0.8rem; /* Küçük ekran için daha küçük font boyutu */
+    }
+
+}
+
+    
+/* X butonunun stili */
+    
+.close-btn {
+
+    margin-left: 10px;
+
+    color: red;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    display: inline-block;
+
+}
+.bildirimler{
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 5%;
+    background-color: #ffffff;
+    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+}
+.kaldir:hover{
+    cursor: pointer;
+}
+.bildirim-item {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 10px;
+
+    border-bottom: 1px solid #ddd;
+
+}
+
+.bildirim-item .time-ago {
+
+    font-size: 12px;
+
+    color: gray;
+
+}

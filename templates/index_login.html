@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Giriş</title>
+		<meta name="description" content="Giriş yapma sayfası.">
+    	<meta name="keywords" content="giriş,üyelik,üye,kayıt">
+    	<meta name="robots" content="index, follow">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='menu.css') }}">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+	</head>
+	<body>
+		<header>
+            <div class = "container" id="container">
+                <div class = "logo" id="logo">
+                    <h1><a href="{{ url_for('index') }}">SiteAdı</a></h1>
+                </div>
+                <nav id="menu">
+                    <ul class="menu" >
+                        <li><a href="{{ url_for('index') }}">Anasayfa</a></li>
+                        <li><a href="{{ url_for('neler_var') }}" class="active">Katagoriler</a></li>
+                        <li href="#link"><a href="{{ url_for('other_page') }}">Diğer</a></li>
+                    </ul>
+                </nav>
+                
+                
+                <div class="log-in-out" id="log-in-out">
+                   
+					<span><a href="{{ url_for("login") }}">Giriş</a></span>
+               
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu">
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Anasayfa</a></li>
+                    <li><a href="{{ url_for('neler_var') }}">Katagoriler</a></li>
+                    <li><a href="{{ url_for('other_page') }}">Diğer</a></li>
+                </ul>
+            </div>
+        </header>
+
+		<div class="login main">
+			<h1>Giriş</h1>
+			<div class="links">
+				<a href="{{ url_for('login') }}" class="active">Giriş</a>
+				<a href="{{ url_for('register') }}">Kayıt</a>
+			</div>
+			<form action="{{ url_for('login') }}" method="post">
+				<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+				<label for="username">
+					<i class="fas fa-user"></i>
+				</label>
+				<input type="text" name="username" placeholder="Username" id="username" required>
+				<label for="password">
+					<i class="fas fa-lock"></i>
+				</label>
+				<input type="password" name="password" placeholder="Password" id="password" required>
+				<div class="msg">{{ msg }}</div>
+				<input type="submit" value="Login">
+			</form>
+		</div>
+		
+		
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				const hamburger = document.getElementById('hamburger');
+				
+				if (hamburger) {
+					hamburger.addEventListener('click', function() {
+						const dropdownMenu = document.getElementById('dropdown-menu');
+						
+						// Menüyü açmak için `open` sınıfını ekliyoruz
+						dropdownMenu.classList.toggle('open');
+					});
+				}
+			});
+			document.getElementById("start-btn").addEventListener("click", function(){
+				document.getElementById("target").scrollIntoView({ behavior: 'smooth' });
+			});
+	
+			
+	
+			document.getElementById('hamburger').addEventListener('click', function() {
+				const dropdownMenu = document.getElementById('dropdown-menu');
+				
+				// Menüyü açmak için `open` sınıfını ekliyoruz
+				dropdownMenu.classList.toggle('open');
+			});
+	
+		</script>
+		<script src="{{ url_for('static', filename='all_js.js') }}"></script>
+	</body>
+</html>

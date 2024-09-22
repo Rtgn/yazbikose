@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neler Var?</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='neler_var.css') }}">
+    
+</head>
+<body>
+    <header>
+        <div class = "container" id="container">
+            <div class = "logo" id="logo">
+                <h1><a href="{{ url_for('index') }}">SiteAdı</a></h1>
+            </div>
+            <nav id="menu">
+                <ul class="menu" >
+                    <li><a href="{{ url_for('index') }}">Anasayfa</a></li>
+                    <li><a href="{{ url_for('neler_var') }}">İçerikler</a></li>
+                    <li href="#link"><a href="#link">Diğer</a></li>
+                </ul>
+            </nav>
+            
+            
+            <div class="log-in-out" id="log-in-out">
+               
+                    {{ linkp|safe }}
+           
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu">
+            <ul>
+                <li><a href="{{ url_for('index') }}">Anasayfa</a></li>
+                <li><a href="{{ url_for('neler_var') }}">İçerikler</a></li>
+                <li><a href="#link">Diğer</a></li>
+            </ul>
+        </div>
+    </header> 
+
+    <main>
+
+        <div class="main-baslik-1" ><h1>Ne Aradığını Seç!</h1></div>
+        <div class="catagories">
+            <ul>
+                <li><a href="#link">Secenek</a></li>
+                <li><a href="#link">Secenek</a></li>
+                <li><a href="#link">Secenek</a></li>
+                <li><a href="#link">Secenek</a></li>
+            </ul>
+        </div>
+        
+
+
+        <div class="contents">
+
+            {% for content in icerik_links %}
+                {{ content | safe }}
+            {% endfor %}
+           
+        </div>
+
+    </main>
+
+    <script>
+        document.getElementById('hamburger').addEventListener('click', function() {
+            const dropdownMenu = document.getElementById('dropdown-menu');
+            
+            // Menüyü açmak için `open` sınıfını ekliyoruz
+            dropdownMenu.classList.toggle('open');
+        });
+    </script>
+    <script src="{{ url_for('static', filename='all_js.js') }}"></script>
+    
+</body>
+</html>

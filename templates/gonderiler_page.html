@@ -1,0 +1,164 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Gönderiler</title>
+        <meta name="description" content="gönderileri görüntülemeı.">
+        <meta name="keywords" content="gönderiler,profil,içerik">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+	</head>
+
+	<body>
+		<header class="layout">
+			<div class = "profile-container">
+				<div class = "p-logo">
+					<h1><a href="{{ url_for('index') }}">yazbiköşe</a></h1>
+				</div>
+                <div class="p-logout">
+                    <a href="{{ url_for('logout') }}">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </a>
+
+                    <a href="{{ url_for('delete_account_page') }}">
+                        <i class="fa fa-user-times" aria-hidden="true"></i>
+                        Hesabı Sil
+                    </a>
+                </div>
+                
+			</div>
+		</header>
+
+
+        
+        <div class="profile-infos">
+
+            <div class="profile-picture">
+                <img src="{{ url_for('static', filename='profil_pictures/' + account['profile_image']) }}" alt="">
+            </div>
+
+            <div class="profile-username">
+                <span>{{ account['username'] }}</span>
+            </div>
+
+            <div class="profile-hakkinda">
+                <p class="hakkinda">
+                    {{ account['hakkinda'] }}
+                </p>
+            </div>
+
+            <div class="fal-send-like">
+
+                <div class="gonderi-sayisi">
+                    <span class="number" id="g-number">{{ total_content }}</span>
+                    <span class="gonderi">Gönderi</span>
+                </div>
+                <div class="fallowers">
+                    <span class="number" id="f-number">{{ follower_count }}</span>
+                    <span class="takipci">Takipçi</span>
+                </div>
+                <div class="liked-number">
+                    <span class="number" id="l-number">{{ total_likes }}</span>
+                    <span class="begeni">Beğeni</span>
+
+                </div>
+            </div>
+
+            <div class="profile-duzenle">
+                <a href="{{ url_for('profil_duzenle') }}">Profil Düzenle</a>
+            </div>
+
+            <div class="profil-secenekler">
+				<a href="{{ url_for('profile') }}" >Profile</a>
+	
+                <a href="{{ url_for('gonderiler_page') }}" class="active">Gonderiler</a>
+                <a href="{{ url_for('notifications') }}">Bildirimler ({{ notifications_count }})</a>
+            </div>
+
+        </div>
+
+        <div class="profilecontents">
+           <h1>Gönderiler</h1>
+           <button class="plus-draft-button" onclick="openFixedForm()">+</button>
+           <br>
+           <div class="index_main">
+            <div class="filter-container">
+                <span><i class="fa-solid fa-filter"></i></span>
+                <span class="filter-button" style="font-size: 20px;" onclick="toggleDropdown()">Filtrele</span>
+            
+                <div id="filter-options" class="filter-options">
+                    <div class="option"><a onclick="applyFilter('latest')">En Son</a></div>
+                    <div class="option"><a onclick="applyFilter('mostliked')">En Beğenilenler</a></div>
+                    <div class="option"><a onclick="applyFilter('mostread')">En Çok Okunanlar</a></div>
+                </div>
+            </div>
+
+            <div class="contents">
+                {% for content in icerik_links %}
+                    {{ content | safe }}
+                {% endfor %}
+            </div>
+            
+        </div>
+
+        <br>
+        <br>
+        
+        
+        <script>
+
+
+            function toggleDropdown() {
+                const filterOptions = document.getElementById('filter-options');
+                filterOptions.classList.toggle('show');
+            }
+        
+            function applyFilter(filterType) {
+                // Seçilen filtreye göre yönlendirme yapar
+                window.location.href = "/gonderiler_page/?sort=" + filterType;
+            }
+    
+            
+
+            function openFixedForm() {
+                window.location.href = '/fixed-form-page';
+            }
+
+            
+            function removelink(icerik_id) {
+                var element = document.getElementById(icerik_id);
+                if (element) {
+                    element.remove();
+                    fetch('/delete-icerik', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-Token': '{{ csrf_token() }}'
+                        },
+                        body: JSON.stringify({ icerik_id: icerik_id })
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            return response.json();
+                        } else {
+                            throw new Error('Silme işlemi başarısız');
+                        }
+                    })
+                    .then(data => {
+                        console.log('icerik silindi:', data);
+                    })
+                    .catch(error => {
+                        console.error('Hata:', error);
+                    });
+                }
+
+            }
+
+        </script>
+	</body>
+</html>
+

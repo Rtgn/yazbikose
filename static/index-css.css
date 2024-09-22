@@ -1,0 +1,753 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: none;
+}
+a{
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+body {
+    font-family: Arial,sans-serif;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-creater {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Profil resmi ile kullanıcı adı arasındaki boşluk */
+}
+
+
+.content-creater img {
+    width: 30px; /* Profil resminin genişliği */
+    height: 30px; /* Profil resminin yüksekliği */
+    border-radius: 50%; /* Resmi yuvarlak yapar */
+    object-fit: cover; /* Resmin içeriği tamamen gösterilir */
+}
+
+.username {
+    font-size: 16px; /* Kullanıcı adının font boyutu */
+    font-weight: bold; /* Kalın yazı stili */
+    color: #333; /* Kullanıcı adının rengi */
+}
+
+
+
+.menu li:nth-child(1) a {
+   
+    font-weight: bold;
+    font-family: "Ubuntu", sans-serif;
+}
+
+
+main{
+    margin-top: 5%;
+}
+
+.index_main{
+    display: flex;
+    flex: 2;
+    /*width: 68%;*/
+    box-sizing: border-box;
+    margin-left: 3%;
+
+    flex-direction: column;
+    padding-right: 2%;
+}
+.report-section-index {
+    box-sizing: border-box;
+    padding-left: 3%;
+    padding-right: 3%;
+    flex: 1;
+    position: sticky;
+    top: 9%; /* Üstten 10px boşluk bırakarak sabitler */
+    border-left: 1px solid #6c757d;
+    max-height: calc(100vh - 20px); /* Sayfa yüksekliğini aşmaz */
+    overflow-y: scroll; /* İçerik kaydırılabilir */
+}
+
+/* Kaydırma çubuğunu gizleme */
+.report-section-index::-webkit-scrollbar {
+    display: none; /* Webkit tarayıcılar için kaydırma çubuğunu gizler */
+}
+.week {
+    text-align: center; /* İçeriği yatay olarak ortalar */
+    width: 100%; /* İçeriğin genişliğine göre genişler */
+
+    display: flex;
+    justify-content: center;
+}
+
+.week h2 {
+    color: #1F0D05;
+    display: inline-block; /* Kenarlık ve padding gibi özellikleri uygular */
+    font-family: "Merriweather", serif;
+    font-weight: bold;
+    font-style: normal;
+    border-bottom: 1px solid #1F0D05;
+    margin: 0; /* Varsayılan margin'i kaldırır */
+}
+.content-creater span a{
+    font-size: 19px;
+}
+.report-section-index h3{
+    font-family: "Ubuntu", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+  
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start; /* Ana öğeleri üstte hizalar */
+}
+.searching_section{
+    height: auto;
+    box-sizing: border-box;
+
+    width: 100%;
+
+    text-align: center;
+    overflow:hidden;/* Dikey taşmaları izin ver */
+    margin-top: 63px;
+    position: relative;
+    background-color: #1F0D05;
+    padding-top: 70px;
+}
+.animated-text span:nth-of-type(2){
+    
+    font-size: 2.5rem;
+    font-weight: bold;
+    
+    text-align: left;
+    color: whitesmoke;
+    display: flex;
+    width: 50%;
+
+
+
+}
+.animated-text{
+    margin-bottom: 40px;
+
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+.kutu{
+    display: flex;
+    justify-content: right;
+    padding-right: 6%;
+    box-sizing: border-box;
+    width: 50%;
+}
+.animation{
+    
+    font-size: 2.5rem;
+    font-weight: bold;
+
+    position: relative;
+}
+.animation::before{
+    content: "Düşün";
+    color: #F0E4D7;
+    animation: words 20s infinite; 
+}
+.animation::after{
+    content: "";
+    position:absolute;
+    width: calc(100% + 10px);
+    height: 100%;
+    background-color: #1F0D05; 
+    border-left: 2px solid #F5F5DC;
+    right: -8px ;
+    animation: cursor .8s infinite, typing 20s steps(14) infinite;
+}
+
+
+/* Responsive adjustments */
+
+@media (max-width: 768px) {
+    .content-creater p{
+        font-size: 15px;
+    }
+    .animated-text span:nth-of-type(2) {
+        font-size: 2rem; /* Küçük ekranlarda yazı boyutunu küçült */
+        width: 100%; /* Tam genişlikte kaplamasını sağlar */
+    }
+
+    .kutu {
+        justify-content: center; /* Daha iyi görünüm için hizalamayı ortala */
+        padding-right: 0; /* Sağdan boşluğu kaldır */
+        width: 100%; /* Küçük ekranlarda tam genişlik */
+    }
+
+    .animation {
+        font-size: 2rem; /* Yazı boyutunu küçült */
+    }
+}
+
+@media (max-width: 576px) {
+    .animated-text span:nth-of-type(2) {
+        font-size: 1.5rem; /* Daha küçük ekranlarda yazı boyutunu daha da küçült */
+    }
+
+    .animation {
+        font-size: 1.5rem; /* Yazı boyutunu küçült */
+    }
+    .animated-text span:nth-of-type(2){
+        width: 40%;
+
+    
+    }
+    .kutu{
+        width: 60%;
+    
+    }
+}
+@keyframes cursor {
+    to{
+        border-left: 2px solid #3E2A19 ;
+    }
+}
+
+@keyframes words {
+    0%,20%{
+        content: "Düşün";
+    }
+    21%,40%{
+        content: "Hayal Et";
+    }
+    41%,60%{
+        content: "Yaşa";
+    }
+    61%,80%{
+        content: "Öğren";
+    }
+    81%,100%{
+        content: "Hisset";
+    }
+}
+
+@keyframes typing {
+    10%,15%,30%,35%,50%,55%,70%,75%,90%,95%{
+        width: 0;
+    }
+    5%,20%,25%,40%,45%,60%,65%,80%,85%{
+        width: calc(100% + 8px);
+    }
+
+}
+
+
+#search-box {
+    width: 70%; /* Searchin_section'ın genişliği kadar olacak */
+    padding: 10px;
+    border-radius: 15px;
+    font-size: 16px;
+    box-sizing: border-box; /* Padding genişliği taşırmasın diye */
+}
+#search-results {
+
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    background-color: white;
+    display: none; /* Varsayılan olarak gizli */
+    max-height: 400px; /* Çok fazla sonuç için maksimum yükseklik */
+    overflow-y: auto; /* Kaydırma çubuğu */
+    position: absolute; /* Sabit konumlandırma */
+     /* .searching_section'ın hemen altına yerleştirir */
+    left: 50%;
+    z-index: 1;
+    transform: translateX(-50%);
+
+}
+#search-results.active {
+    display: block;
+}
+#search-results a{
+    /*border-radius: 15px;
+    background-color: #6F4E37;
+    font-size: 1.1rem;
+    padding: 5px;
+    border-bottom: 1px solid #ddd;*/
+    display: block;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-decoration: none;
+    color: #333;
+}
+
+.filter-section{
+    width: 100%;
+    display: flex;
+    background-color: antiquewhite
+}
+.all-contents-section{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.category-content {
+    margin-top: 2%;
+    display: flex;
+    width: 100%; /* %90 genişlik - %5 boşluklar olacak şekilde */
+
+    height: auto;
+
+    align-items: stretch;
+    box-sizing: border-box;
+    padding: 5px;
+}
+
+
+.content-image {
+    width: 40%;  
+    background-color: #f0f0f0; 
+    box-sizing: border-box;
+    overflow: hidden; 
+    height: auto;
+   
+    border-radius: 20px;
+    display: flex;
+}
+
+.content-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.content-infos {
+    width: 55%; /* %55 genişlik */
+    background-color: #ffffff;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    margin-left: 5%;
+}
+
+.creater-other-infos   {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.liked-number {
+    display: flex;
+
+    align-items: center;
+
+}
+.liked-number span {
+    margin: 2px;
+}
+.fa-filter{
+    font-size: 1.5rem;
+
+}
+.filter-button{
+    font-size: 1.9rem;
+
+    padding: 20px;
+    box-sizing: border-box;
+
+}
+.filter-container{
+    margin-left: 10px;
+}
+
+.content-title{
+
+    display: flex;
+
+    width: 100%;
+    border-bottom: 1px solid black;
+
+}
+
+.content-etiket {
+    box-sizing: border-box;
+    padding-top: 3%;
+    display: flex;
+    width: 100%;
+    white-space: nowrap; 
+    padding-bottom: 3%;
+    border-bottom: 1px solid black;          /* Alta geçmeyi engelle */
+}
+
+.etiketler {   
+    display: inline-block;         /* Etiketler yan yana dizilir */    
+    width:30% ;
+    margin-left: 2%;
+    border-radius: 5px;            /* Kenarları yuvarla */
+    font-size: 0.9rem;   
+    box-sizing: border-box; 
+    background-color: #F0E4D7;  
+          /* Yazı boyutu */
+}
+
+
+.etiketler a {
+    
+    justify-content: center;
+    display: flex;
+    
+    box-sizing: border-box;
+    padding: 5px;
+    border-radius: 20%;
+}
+
+@media (max-width: 1125px) {
+    .etiketler {   
+        width: 20%;
+        font-size: 0.9rem;   
+        margin-top: 2%;
+
+    }
+    .etiketler a {  
+        margin-top: 2px; 
+      
+        font-size: 0.6rem;   
+
+    }
+    .content-etiket{
+        flex-wrap: wrap;
+    }
+    
+}
+
+/* Responsive için media query */
+@media (max-width: 768px) {
+    .animation{  
+        font-size: 2rem;
+    }
+    .animated-text span:nth-of-type(2){
+
+        font-size: 2rem;
+
+        width: 50%;
+    }    
+    .kutu{
+        width: 30%;
+    
+    }
+    .animated-text{
+
+        margin-left: 10%;
+    
+    }
+    main{
+        margin-top: 20%;
+    }
+    .content {
+        width: 100%; /* İçeriklerin genişliğini tam yapar, böylece alt alta geçerler */
+        margin-left: 0;
+    }
+    .menu {
+        display: none; /* Menüyü gizle */
+    }
+
+    .hamburger {
+        display: flex; /* Hamburger menüyü göster */
+    }
+
+    .log-in-out {
+        margin-right: 1rem;
+    }
+
+    .log-in-out span a {
+        font-size: 1.6rem;
+    }
+    
+    .etiketler {   
+        width: 40%;
+        font-size: 0.9rem;   
+        margin-top: 2%;
+
+    }
+    .etiketler a {  
+        margin-top: 2px; 
+      
+        font-size: 0.5rem;   
+
+    }
+    .content-etiket{
+        flex-wrap: wrap;
+    }
+    
+    .content-title{
+
+        font-size: 0.8rem;
+    
+    }
+    
+ 
+}
+.dropdown-menu.open {
+    display: block;
+}
+/* Açılır menüyü göstermek için */
+#hamburger.open + #dropdown-menu {
+    display: block;
+}
+@media (max-width: 560px) {
+   
+    .index_main{
+        width: 98%;
+    }
+    .report-section-index {
+
+      display: none;
+ 
+    }
+}
+@media (max-width: 480px) {
+    .logo h1 a {
+        font-size: 1.8rem;
+    }
+
+    .log-in-out {
+        width: 50%;
+    }
+
+    .menu li a {
+        font-size: 1.2rem;
+    }
+}
+
+.filter-container {
+    position: relative;
+    display: inline-block;
+    
+}
+.fa-filter{
+    color: #333;
+    
+}
+.filter-button {
+    cursor: pointer;
+    margin-left: 5px;
+
+    padding: 5px;
+    font-size: 16px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.filter-options {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0 1px 0 rgba(0, 0, 0, 0.02);
+    padding: 10px;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.filter-options .option {
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.filter-options .option:hover {
+    background-color: #f1f1f1;
+}
+
+.category-options {
+    display: none;
+    margin-top: 10px;
+    padding-left: 10px;
+    background-color: #f9f9f9;
+    
+}
+
+.category-options label {
+    display: block;
+    padding: 5px 0;
+}
+
+.show {
+    display: block;
+}
+
+
+
+
+
+
+.most_read_authors,
+.most_liked_authors,
+.most_read_contents,
+.most_liked_contents{
+    display: flex;
+    width: 100%;
+}
+
+.most_read_authors,
+.most_liked_authors {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+
+.author {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+}
+.author-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.author-info {
+    text-align: center;
+}
+
+.username {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.total-count {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+.most_read_contents,
+.most_liked_contents {
+    display: flex;
+    flex-direction: column;
+}
+
+.most_category-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.most_content-image {
+    width: 100px;
+    height: 100px;
+  
+}
+
+.most_content-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.most_content-infos {
+    flex: 1;
+    padding-left: 2%;
+    box-sizing: border-box;
+}
+
+.most_content-title h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.most_creater-other-infos {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+.content-creater {
+    display: flex; /* Flexbox düzeni ile yatay hizalama */
+    align-items: center; /* Dikeyde ortalama */
+}
+
+.content-creater span {
+    margin-left: 2px; /* İsteğe bağlı olarak sağdaki boşluğu ayarlar */
+}
+.most_content-creater span {
+    margin-left: 2px; /* İsteğe bağlı olarak sağdaki boşluğu ayarlar */
+}
+.most_content-creater {
+    display: flex; /* Flexbox düzeni ile yatay hizalama */
+    align-items: center;
+}
+
+
+
+.most_liked-number span {
+ margin: 2px;
+}
+.most_liked-number {
+    display: flex;
+    align-items: center;
+}
+
+.most_number {
+    font-size: 1rem;
+    margin-left: 5px;
+}
+
+.most_begeni {
+    margin-left: 10px;
+}
+hr {
+    border: none;
+    height: 1px;
+    background-color: #e0e0e0;
+}
+
+@media (max-width: 768px) {
+    
+
+    .most_read_authors,
+    .most_liked_authors {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .author {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+    .most_category-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .most_content-image {
+        width: 100%;
+        height: auto;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
+

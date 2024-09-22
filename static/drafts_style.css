@@ -1,0 +1,184 @@
+ /* Genel stil ayarları */
+ body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+/* Form ve butonları hizalamak için flexbox kullanıyoruz */
+.form-container {
+    width: 100%; /* veya belirli bir genişlik (örneğin, 80%) */
+    box-sizing: border-box; /* Padding ve border'ı genişliğe dahil eder */
+     /* Görsel amaçlı arka plan rengi */
+    position: relative;
+    justify-content: center;
+    margin-top: 10%;
+}
+form{ 
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+    justify-content: center;
+}
+#dynamicContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.input-container{
+
+    display: flex;
+ 
+    width: 100%;
+    margin-bottom: 10px;
+
+}
+.cc{
+    display: flex;            
+    justify-content: center; 
+    align-items: center;     
+    background-color: #888;
+    text-align: center;
+    padding: 5px;       
+    width: 10%;
+    margin-left: 5%;
+    color: white;            
+    text-decoration: none;
+    border-radius: 3px;   
+    
+}
+.inputs{
+    
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+.inputs-l{
+    box-sizing: border-box;
+    font-size: 16px;
+    padding: 10px;
+    width: 90%;
+}
+.metin {
+
+    height: 200px;
+}
+.gonder-buton{
+    display: flex;
+    width:50% ;
+    margin-left: 25%;
+}
+.kaydet{
+    width: 100%;
+    box-sizing: border-box; /* Padding ve border'ı genişliğe dahil eder */
+    /* Görsel amaçlı arka plan rengi */
+    position: relative;
+    justify-content: center;
+    margin-top: 10%;
+
+}
+.kaydet-buton{
+    margin-left: 80%;
+}
+/* Text input genişliğini form-container'ın %80'i olarak ayarlıyoruz */
+
+/* Başlık input alanı */
+
+.option-button{
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+/* Yuvarlak artı butonu */
+.plus-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    border: none;
+}
+
+/* Seçeneklerin olduğu div */
+.options-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+/* Kapama düğmesi */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    border: none;
+    background: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: #888;
+}
+
+
+.close-button:hover {
+    color: #333;
+}
+
+.options-container ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.options-container ul li {
+    padding: 10px 0;
+}
+
+
+
+.checkbox-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox-container label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+
+
+
+
+
+

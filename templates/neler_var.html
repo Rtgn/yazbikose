@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yazbiköşe|Kategoriler</title>
+    <meta name="description" content="İçerik okuma sayfası.">
+    <meta name="keywords" content="kategori, içerik,yorum,öneriler, kategoriler, içerikler">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='neler_var.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='menu.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+    <header>
+        <div class = "container" id="container">
+            <div class = "logo" id="logo">
+                <h1><a href="{{ url_for('index') }}">yazbiköşe</a></h1>
+            </div>
+            <nav id="menu">
+                <ul class="menu" >
+                    <li><a href="{{ url_for('index') }}">Anasayfa</a></li>
+                    <li><a href="{{ url_for('neler_var') }}" class="active">Katagoriler</a></li>
+                    <li href="#link"><a href="{{ url_for('other_page') }}">Diğer</a></li>
+                </ul>
+            </nav>
+            
+            
+            <div class="log-in-out" id="log-in-out">
+               
+                    {{ linkp|safe }}
+           
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu">
+            <ul>
+                <li><a href="{{ url_for('index') }}">Anasayfa</a></li>
+                <li><a href="{{ url_for('neler_var') }}">Katagoriler</a></li>
+                <li><a href="{{ url_for('other_page') }}">Diğer</a></li>
+            </ul>
+        </div>
+    </header> 
+
+
+
+
+    <main>
+        <div class="catagories-container">
+            <h1>Kategoriler</h1>
+            <div class="catagories">
+                <div class="catagory">
+                    <i class="fa-solid fa-book-open"></i>
+                    <a href="{{ url_for('category_viewer', category_name='Kitap') }}">Kitap</a>
+                </div>
+                <div class="catagory">
+                    <i class="fa-solid fa-desktop"></i>
+                    <a href="{{ url_for('category_viewer', category_name='Yazılım') }}">Yazılım</a>
+                </div>  
+                <div class="catagory">
+                    <i class="fa-solid fa-gears"></i>
+                    <a href="{{ url_for('category_viewer', category_name='Teknoloji') }}">Teknoloji</a>
+                </div>
+                <div class="catagory">
+                    <i class="fa-solid fa-feather"></i>
+                    <a href="{{ url_for('category_viewer', category_name='KısaHikaye') }}">Kısa Hikaye</a>
+                </div>
+                <div class="catagory">
+                    <i class="fa-solid fa-ticket"></i>
+                    <a href="{{ url_for('category_viewer', category_name='DiziFilm') }}">Dizi/Film</a>
+                </div>
+                <div class="catagory">
+                    <i class="fa-regular fa-lightbulb"></i>
+                    <a href="{{ url_for('category_viewer', category_name='TavsiyeÖneri') }}">Tavsiye/Öneri</a>
+                </div>
+                <div class="catagory">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                    <a href="{{ url_for('category_viewer', category_name='Sağlık') }}">Sağlık</a>
+                </div>
+                <div class="catagory">
+                    <i class="fa-solid fa-book"></i>
+                    <a href="{{ url_for('category_viewer', category_name='Günlük') }}">Günlük</a>
+                </div>
+                <div class="catagory">
+                    <i class="fa-solid fa-newspaper"></i>
+                    <a href="{{ url_for('category_viewer', category_name='Magazin') }}">Magazin</a>
+                </div>
+                <div class="catagory">
+                    <i class="fa-solid fa-language"></i>
+                    <a href="{{ url_for('category_viewer', category_name='YabancıDil') }}">Yabancı Dil</a>
+                </div>
+                <div class="catagory">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <a href="{{ url_for('category_viewer', category_name='Eğitim') }}">Eğitim</a>
+                </div>
+                <div class="catagory">
+                    <i class="fa-solid fa-palette"></i>
+                    <a href="{{ url_for('category_viewer', category_name='SanatKültür') }}">Sanat/Kültür</a>
+                </div>
+                <div class="catagory">
+                    <i class="fa-solid fa-flask"></i>
+                    <a href="{{ url_for('category_viewer', category_name='Bilim') }}">Bilim</a>
+                </div>
+                <div class="catagory">
+                    <i class="fa-solid fa-user-graduate"></i>
+                    <a href="{{ url_for('category_viewer', category_name='KisiselGelisim') }}">Kişisel Gelişim</a>
+                </div>
+                <div class="catagory">
+                    <i class="fa-solid fa-gamepad"></i>
+                    <a href="{{ url_for('category_viewer', category_name='Oyun') }}">Oyun</a>
+                </div>
+                <div class="catagory">
+                    <i class="fa-solid fa-plane"></i>
+                    <a href="{{ url_for('category_viewer', category_name='Seyehat') }}">Seyehat</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <h3>Kategoriler</h3>
+                <div class="categories-footer">
+                    <a href="{{ url_for('category_viewer', category_name='Kitap') }}">Kitap</a>
+                    <a href="{{ url_for('category_viewer', category_name='Yazılım') }}">Yazılım</a>
+                    <a href="{{ url_for('category_viewer', category_name='Teknoloji') }}">Teknoloji</a>
+                    <a href="{{ url_for('category_viewer', category_name='KısaHikaye') }}">Kısa Hikaye</a>
+                    <a href="{{ url_for('category_viewer', category_name='DiziFilm') }}">Dizi/Film</a>
+                    <a href="{{ url_for('category_viewer', category_name='TavsiyeÖneri') }}">Tavsiye/Öneri</a>
+                    <a href="{{ url_for('category_viewer', category_name='Sağlık') }}">Sağlık</a>
+                    <a href="{{ url_for('category_viewer', category_name='Günce') }}">Günlük</a>
+                    <a href="{{ url_for('category_viewer', category_name='Magazin') }}">Magazin</a>
+                    <a href="{{ url_for('category_viewer', category_name='YabancıDil') }}">Yabancı Dil</a>
+                    <a href="{{ url_for('category_viewer', category_name='Eğitim') }}">Eğitim</a>
+                    <a href="{{ url_for('category_viewer', category_name='SanatKültür') }}">Sanat/Kültür</a>
+                    <a href="{{ url_for('category_viewer', category_name='Bilim') }}">Bilim</a>
+                    <a href="{{ url_for('category_viewer', category_name='KisiselGelisim') }}">Kişisel Gelişim</a>
+                    <a href="{{ url_for('category_viewer', category_name='Oyun') }}">Oyun</a>
+                    <a href="{{ url_for('category_viewer', category_name='Seyehat') }}">Seyehat</a>
+                </div>
+            </div>
+            <div class="footer-middle">
+                <h3>Diğer</h3>
+                <a href="{{ url_for('other_page') }}">Neler Var</a>
+                <a href="{{ url_for('other_page') }}">İşbirliği</a>
+                <a href="{{ url_for('other_page') }}">İletişim</a>
+            </div>
+            <div class="footer-right">
+                <h3>Site Adı</h3>
+                <div class="instagram">
+                    <img src="{{ url_for('static', filename='pictures/insta_logo2.png') }}" alt="Instagram">
+                    <p>@adres</p>
+                </div>
+                <p><i class="fa-regular fa-envelope"></i> info@siteadi.com</p>
+                <div class="subscribe">
+                    <button><a href="{{ url_for('login') }}">Yazmaya Başla!</a></button>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="{{ url_for('static', filename='all_js.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('hamburger');
+            
+            if (hamburger) {
+                hamburger.addEventListener('click', function() {
+                    const dropdownMenu = document.getElementById('dropdown-menu');
+                    
+                    // Menüyü açmak için `open` sınıfını ekliyoruz
+                    dropdownMenu.classList.toggle('open');
+                });
+            }
+        });
+        
+
+
+    </script>
+    
+    
+</body>
+</html>

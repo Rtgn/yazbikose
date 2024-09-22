@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yazbiköşe|Diğer</title>
+    <meta name="description" content="İletişim,neler var, işbirliği bilgilerini içeren sayfa.">
+    <meta name="keywords" content="iletişim,nelervar,işbirliği">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='menu.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .section {
+            padding: 20px;
+            margin: 20px auto;
+            width: 60%;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            color: #333;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        input, textarea {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        textarea {
+            resize: none;  /* Kullanıcı tarafından yeniden boyutlandırmayı engeller */
+        }
+        
+        button {
+            padding: 10px 20px;
+            background-color:#1F0D05;
+            color: white;
+            font-size:20px;
+            border: none;
+            border-radius: 5px;
+            transition: all 0.3s ease-in;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #F0E4D7;
+            color:#333;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class = "container" id="container">
+            <div class = "logo" id="logo">
+                <h1><a href="{{ url_for('index') }}">yazbiköşe</a></h1>
+            </div>
+            <nav id="menu">
+                <ul class="menu" >
+                    <li><a href="{{ url_for('index') }}">Anasayfa</a></li>
+                    <li><a href="{{ url_for('neler_var') }}">Kategoriler</a></li>
+                    <li href="#link"><a href="{{ url_for('other_page') }}">Diğer</a></li>
+                </ul>
+            </nav>
+            
+            
+            <div class="log-in-out" id="log-in-out">
+               
+                    {{ linkp|safe }}
+           
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu">
+            <ul>
+                <li><a href="{{ url_for('index') }}">Anasayfa</a></li>
+                <li><a href="{{ url_for('neler_var') }}">Kategoriler</a></li>
+                <li><a href="{{ url_for('other_page') }}">Diğer</a></li>
+            </ul>
+        </div>
+    </header>
+    
+
+    <main style="margin-top: 13%;">
+        <div class="section" id="neler-var">
+            <h2>Neler Var</h2>
+            <p>Senin de köşen hazır, hadi durma yazbiköşe...</p>
+            <ul>
+                <li><strong>Yazılarınızı Paylaşın:</strong> Onlarca farklı konuda kendi yazılarınızı oluşturun ve yayınlayarak düşüncelerinizi dünyayla paylaşın. Yazılarınız, farklı kitlelere ulaşma fırsatı sunar!</li>
+                <li><strong>Geri Bildirim Alın:</strong> Yazdıklarınızı diğer kullanıcılarla paylaşarak değerli geri bildirimler alın. Bu, gelişiminiz için harika bir fırsat!</li>
+                <li><strong>Topluluk Oluşturun:</strong> Benzer ilgi alanlarına sahip kişilerle etkileşime geçin. Yorum yapın, beğenin ve tartışmalara katılarak topluluğumuzu büyütün!</li>
+                <li><strong>Farklı Konulara Göz Atın:</strong> Sağlık, teknoloji, sanat, bilim ve daha fazlası gibi çeşitli konularda yazılmış içerikleri keşfedin. İlginizi çeken konularda yeni bakış açıları edinin!</li>
+            </ul>
+        </div>
+    
+        <div class="section" id="isbirligi">
+            <h2>İşbirliği</h2>
+            
+            <ul>
+                <li><strong>Hedef Kitleye Ulaşın:</strong> Yazarlarımızla ortak projeler geliştirerek, ürünlerinizi ve hizmetlerinizi hedef kitleye ulaştırabilirsiniz.</li>
+                <li><strong>Yetenekli Yazarlarla Tanışın:</strong> Sitemizdeki yetenekli yazarlar, marka hikayenizi ve değerlerinizi yaratıcı bir şekilde aktarabilir.</li>
+                <li><strong>İçerik Sponsorlukları:</strong> İçeriklerimizi destekleyerek, markanızı daha görünür kılın. Ortak kampanyalar ve sponsorlu içeriklerle birlikte büyüyelim!</li>
+                <li><strong>Paylaşım Fırsatları:</strong> Sosyal medya ve diğer platformlarda birlikte paylaşım yaparak, daha fazla kişiye ulaşabilirsiniz!</li>
+            </ul>
+            <p>İşbirlikiçiz olmak platformumuza ve yazarlarımıza destek vermek isterseniz bizimle iletişime geçmeyi unutmayın!</p>
+        
+        </div>
+    
+        <div class="section" id="iletisim">
+            <h2>İletişim</h2>
+            <form id="contactForm" method="POST" action="/iletisim">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <label for="name">İsim:</label>
+                <input type="text" id="name" name="name" required><br><br>
+    
+                <label for="subject">Konu:</label>
+                <input type="text" id="subject" name="subject" required><br><br>
+    
+                <label for="email">E-posta:</label>
+                <input type="email" id="email" name="email" required><br><br>
+    
+                <label for="message">Mesajınız:</label>
+                <textarea id="message" name="message" rows="4" required></textarea><br><br>
+    
+                <button type="submit">Gönder</button>
+            </form>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <h3>Kategoriler</h3>
+                <div class="categories-footer">
+                    <a href="{{ url_for('category_viewer', category_name='Kitap') }}">Kitap</a>
+                    <a href="{{ url_for('category_viewer', category_name='Yazılım') }}">Yazılım</a>
+                    <a href="{{ url_for('category_viewer', category_name='Teknoloji') }}">Teknoloji</a>
+                    <a href="{{ url_for('category_viewer', category_name='KısaHikaye') }}">Kısa Hikaye</a>
+                    <a href="{{ url_for('category_viewer', category_name='DiziFilm') }}">Dizi/Film</a>
+                    <a href="{{ url_for('category_viewer', category_name='TavsiyeÖneri') }}">Tavsiye/Öneri</a>
+                    <a href="{{ url_for('category_viewer', category_name='Sağlık') }}">Sağlık</a>
+                    <a href="{{ url_for('category_viewer', category_name='Günce') }}">Günlük</a>
+                    <a href="{{ url_for('category_viewer', category_name='Magazin') }}">Magazin</a>
+                    <a href="{{ url_for('category_viewer', category_name='YabancıDil') }}">Yabancı Dil</a>
+                    <a href="{{ url_for('category_viewer', category_name='Eğitim') }}">Eğitim</a>
+                    <a href="{{ url_for('category_viewer', category_name='SanatKültür') }}">Sanat/Kültür</a>
+                    <a href="{{ url_for('category_viewer', category_name='Bilim') }}">Bilim</a>
+                    <a href="{{ url_for('category_viewer', category_name='KisiselGelisim') }}">Kişisel Gelişim</a>
+                    <a href="{{ url_for('category_viewer', category_name='Oyun') }}">Oyun</a>
+                    <a href="{{ url_for('category_viewer', category_name='Seyehat') }}">Seyehat</a>
+                </div>
+            </div>
+            <div class="footer-middle">
+                <h3>Diğer</h3>
+                <a href="{{ url_for('other_page') }}">Neler Var</a>
+                <a href="{{ url_for('other_page') }}">İşbirliği</a>
+                <a href="{{ url_for('other_page') }}">İletişim</a>
+            </div>
+            <div class="footer-right">
+                <h3>Site Adı</h3>
+                <div class="instagram">
+                    <img src="{{ url_for('static', filename='pictures/insta_logo2.png') }}" alt="Instagram">
+                    <p>@adres</p>
+                </div>
+                <p><i class="fa-regular fa-envelope"></i> info@siteadi.com</p>
+                <div class="subscribe">
+                    <button><a href="{{ url_for('login') }}">Yazmaya Başla!</a></button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='all_js.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('hamburger');
+            
+            if (hamburger) {
+                hamburger.addEventListener('click', function() {
+                    const dropdownMenu = document.getElementById('dropdown-menu');
+                    
+                    // Menüyü açmak için `open` sınıfını ekliyoruz
+                    dropdownMenu.classList.toggle('open');
+                });
+            }
+        });
+        
+
+
+    </script>
+
+    
+</body>
+</html>

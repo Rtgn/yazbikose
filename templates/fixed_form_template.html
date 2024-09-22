@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İçerik Oluşturma</title>
+    <meta name="description" content="Yeni İçerik oluşturma formu.">
+    <meta name="keywords" content="kategori, içerik, kategoriler, içerikler">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+    <link rel="stylesheet" href="{{ url_for('static', filename='drafts_style.css') }}">
+    <!-- include libraries(jQuery, bootstrap) -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- include summernote css/js -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
+</head>
+<body>
+
+    <form method="post" action="/fixed_form" enctype="multipart/form-data" onsubmit="return validateForm()">
+
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <div class="input-container">
+            <label>Etiketler:</label>
+            <div class="checkbox-container">
+                <label><input type="checkbox" name="etiketler" value="Yazılım"> Yazılım</label>
+                <label><input type="checkbox" name="etiketler" value="Kitap"> Kitap</label>
+                <label><input type="checkbox" name="etiketler" value="DiziFilm"> Dizi/Film</label>
+                <label><input type="checkbox" name="etiketler" value="TavsiyeÖneri"> Tavsiye/Öneri</label>
+                <label><input type="checkbox" name="etiketler" value="Teknoloji"> Teknoloji</label>
+                <label><input type="checkbox" name="etiketler" value="Sağlık"> Sağlık</label>
+                <label><input type="checkbox" name="etiketler" value="KisiselGelisim"> Kişisel Gelişim</label>
+                <label><input type="checkbox" name="etiketler" value="Günlük"> Günlük</label>
+                <label><input type="checkbox" name="etiketler" value="Magazin"> Magazin</label>
+                <label><input type="checkbox" name="etiketler" value="KısaHikaye"> Kısa Hikaye</label>
+                <label><input type="checkbox" name="etiketler" value="Oyun"> Oyun</label>
+                <label><input type="checkbox" name="etiketler" value="Eğitim"> Eğitim</label>
+                <label><input type="checkbox" name="etiketler" value="YabancıDil"> Yabancı Dil</label>
+                <label><input type="checkbox" name="etiketler" value="SanatKültür"> Sanat/Kültür</label>
+                <label><input type="checkbox" name="etiketler" value="Bilim"> Bilim</label>
+                <label><input type="checkbox" name="etiketler" value="Seyehat"> Seyehat</label>
+            </div>
+        </div>
+    
+        <input class="inputs-l imageUp" type="file" name='imageUpload' id="ilkresim" accept="image/*" required>
+        <br>
+    
+        <input class="inputs-l" type="text" id="Başlık" name="baslik" placeholder="Ana Başlık" required>
+        <br>
+    
+        <textarea id="summernote" name="editordata"></textarea>
+        <input type="submit" value="Gönder">
+    
+    </form>
+
+
+    <script>
+        function validateForm() {
+            // Max 5 etiket kontrolü
+            const checkboxes = document.querySelectorAll('input[name="etiketler"]:checked');
+            if (checkboxes.length > 5) {
+                alert('En fazla 5 etiket seçebilirsiniz.');
+                return false;
+            }
+    
+            // Başlık kontrolü
+            const baslik = document.getElementById('Başlık').value;
+            if (!baslik.trim()) {
+                alert('Başlık boş olamaz.');
+                return false;
+            }
+    
+            // Resim yükleme kontrolü
+            const image = document.getElementById('ilkresim').files.length;
+            if (image === 0) {
+                alert('Lütfen bir resim yükleyin.');
+                return false;
+            }
+    
+            // Summernote içerik kontrolü (200 karakter)
+            const summernoteContent = $('#summernote').val().trim();
+            if (summernoteContent.length < 1200) {
+                alert('İçeriğiniz yayınlanmak için çok kısa.');
+                return false;
+            }
+    
+            return true;  // Form başarılıysa gönderilmeye devam edecek
+        }
+        $(document).ready(function() {
+            $('#summernote').summernote();
+        });
+
+        $('#summernote').summernote({
+            callbacks: {
+                onImageUpload: function(files) {
+                    for (let i = 0; i < files.length; i++) {
+                        let reader = new FileReader();
+                        reader.onload = function(e) {
+                            let imgNode = $('<img>').attr('src', e.target.result);
+                            imgNode.css('max-width', '100%'); // Resim genişliğini %100 olarak ayarla
+                            $('#summernote').summernote('insertNode', imgNode[0]);
+                        };
+                        reader.readAsDataURL(files[i]);
+                    }
+                }
+            }
+        });
+    </script>
+    
+</body>
+</html>

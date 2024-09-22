@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hesap Silme</title>
+    <meta name="description" content="Hesap silme">
+    <meta name="keywords" content="hesap, silme, kapatma">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .delete-account-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #d9534f;
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .warning-text {
+            color: #d9534f;
+            font-weight: bold;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #d9534f;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #c9302c;
+        }
+
+        .cancel-button {
+            background-color: #5bc0de;
+        }
+
+        .cancel-button:hover {
+            background-color: #31b0d5;
+        }
+    </style>
+</head>
+<body>
+    <div class="delete-account-container">
+        <h1>Hesabınızı Silmek İstediğinizden Emin misiniz?</h1>
+        <p>Bu işlem geri alınamaz. Hesabınız silindiğinde tüm verileriniz kaybolacaktır.</p>
+        <p class="warning-text">Bu işlemi gerçekleştirdikten sonra hesabınıza tekrar erişemezsiniz.</p>
+    
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul class="flash-messages">
+            {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        {% endwith %}
+    
+        <form action="/delete_account" method="POST">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <div class="form-group">
+                <label for="username">Kullanıcı Adı:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Şifre:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="button-container">
+                <button type="submit" class="button">Hesabımı Sil</button>
+            </div>
+        </form>
+        <br>
+        <div class="button-container">
+            <a href="{{ url_for('profile') }}">
+                <button class="button cancel-button">İptal</button>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

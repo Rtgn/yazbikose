@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İcerik Sayfası</title>
+    <link rel="stylesheet" href="icerik_sayfsi.css">
+</head>
+<body>
+    <head>
+        <div class = "container" id="container">
+            <div class = "logo" id="logo">
+                <h1><a href="index.html">SiteAdı</a></h1>
+            </div>
+            <nav id="menu">
+                <ul class="menu" >
+                    <li><a href="index.html" id="Menu1">Anasayfa</a></li>
+                    <li><a href="#link">İçerikler</a></li>
+                    <li href="#link"><a href="#link">Diğer</a></li>
+                </ul>
+            </nav>
+            
+        
+            <div class="log-in-out" id="log-in-out">
+                <span><a href="http://localhost:8080/pythonlogin/">Log in/ Log out</a></span>
+            </div>
+        </div>
+    </head>
+
+    <main>
+
+        <div class="yazi_container">
+             <div class="informations">
+                <div class="info-image"><img src="pictures/shutterstock_1170439420-e1540562366461.jpg" alt=""></div>
+            
+                <div class="info_creator"><a href="#link" class="creator"><span>by <span>Username</span></span></a><a href="#link" class="catagory"><span>Etiket</span></a></div>    
+                <div class="cizgi"></div>
+                <div class="info-title"><h1>Buraya Başlık Gelecek</h1></div>
+             </div>
+
+             <div class="yazi">
+                
+             </div>
+
+             <div class="like-section">
+                <span>Beğenmeyi unutma! </span>
+                <span id="likeCount">0</span>
+                <button class="like-btn" onclick="incrementLike()">
+                    <i class="heart-icon">♡</i>
+                </button>
+            </div>
+
+        </div>
+        
+        <div class="oneriler"></div>
+    </main>
+
+
+    <script src="{{ url_for('static', filename='all_js.js') }}"></script>
+    
+</body>
+</html>

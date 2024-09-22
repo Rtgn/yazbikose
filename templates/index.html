@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yazbiköşe|Anasayfa</title>
+    <meta name="description" content="Anasayfa,tüm İçerikler">
+    <meta name="keywords" content="kategori,okuma,anasayfa, içerik,yorum,öneriler, rapor,kategoriler, içerikler">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <style>
+       
+        .content-creater {
+            display: flex; 
+            align-items: center; 
+        }
+        
+        .content-creater span {
+            margin-left: 5px; 
+        }
+        
+    </style>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='index-css.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='menu.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+</head>
+<body>
+    <header>
+        <div class = "container" id="container">
+            <div class = "logo" id="logo">
+                <h1><a href="{{ url_for('index') }}">yazbiköşe</a></h1>
+            </div>
+            <nav id="menu">
+                <ul class="menu" >
+                    <li><a href="{{ url_for('index') }}">Anasayfa</a></li>
+                    <li><a href="{{ url_for('neler_var') }}" class="active">Katagoriler</a></li>
+                    <li><a href="{{ url_for('other_page') }}">Diğer</a></li>
+                </ul>
+            </nav>
+            
+            
+            <div class="log-in-out" id="log-in-out">
+               
+                    {{ linkp|safe }}
+           
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu">
+            <ul>
+                <li><a href="{{ url_for('index') }}">Anasayfa</a></li>
+                <li><a href="{{ url_for('neler_var') }}">Katagoriler</a></li>
+                <li><a href="{{ url_for('other_page') }}">Diğer</a></li>
+            </ul>
+        </div>
+    </header>  
+
+
+    <div class="searching_section">
+        
+        <div class="animated-text">
+            <span class="kutu">
+                <span class="animation"></span>
+            </span>
+            
+            <span>Yaz, Paylaş</span> 
+        </div>
+            
+        
+        <input type="text" id="search-box" placeholder="Arama yap...">
+       
+
+    </div>
+    <div id="search-results"></div>
+
+    <br><br>
+    <main>
+        <div class="index_main">
+            <div class="filter-container">
+                <span><i class="fa-solid fa-filter"></i></span>
+                <span class="filter-button" style="font-size: 20px;" onclick="toggleDropdown()">Filtrele</span>
+            
+                <div id="filter-options" class="filter-options">
+                    <div class="option"><a onclick="applyFilter('latest')">En Son</a></div>
+                    <div class="option"><a onclick="applyFilter('fallowingcontents')">Takip Ettiklerin</a></div>
+                    <div class="option"><a onclick="applyFilter('mostliked')">En Beğenilenler</a></div>
+                    <div class="option" onclick="toggleCategories()">Kategoriler</div>
+                
+                    <!-- Kategoriler Alt Seçenekleri (Dropdown) -->
+                    <div id="category-options" class="category-options">
+                        <label><input type="checkbox" name="etiketler" value="Yazılım"> Yazılım</label>
+                        <label><input type="checkbox" name="etiketler" value="Kitap"> Kitap</label>
+                        <label><input type="checkbox" name="etiketler" value="DiziFilm"> Dizi/Film</label>
+                        <label><input type="checkbox" name="etiketler" value="TavsiyeÖneri"> Tavsiye/Öneri</label>
+                        <label><input type="checkbox" name="etiketler" value="Teknoloji"> Teknoloji</label>
+                        <label><input type="checkbox" name="etiketler" value="Sağlık"> Sağlık</label>
+                        <label><input type="checkbox" name="etiketler" value="KisiselGelisim"> Kişisel Gelişim</label>
+                        <label><input type="checkbox" name="etiketler" value="Günlük"> Günlük</label>
+                        <label><input type="checkbox" name="etiketler" value="Magazin"> Magazin</label>
+                        <label><input type="checkbox" name="etiketler" value="KısaHikaye"> Kısa Hikaye</label>
+                        <label><input type="checkbox" name="etiketler" value="Oyun"> Oyun</label>
+                        <label><input type="checkbox" name="etiketler" value="Eğitim"> Eğitim</label>
+                        <label><input type="checkbox" name="etiketler" value="YabancıDil"> Yabancı Dil</label>
+                        <label><input type="checkbox" name="etiketler" value="SanatKültür"> Sanat/Kültür</label>
+                        <label><input type="checkbox" name="etiketler" value="Bilim"> Bilim</label>
+                        <label><input type="checkbox" name="etiketler" value="Seyehat"> Seyehat</label>
+                        <button onclick="applyCategoryFilter()">Filtrele</button>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="all-contents-section">
+            
+                {% for content in icerik_links %}
+                    {{ content | safe }}
+                {% endfor %}
+            
+            </div>
+        
+        </div>
+    
+        <div class="report-section-index">
+            <span class="week"><h2>Haftanın</h2></span>
+            <br>
+            <span><h3>En Çok Okunan Yazarları</h3></span>
+
+            <div class="most_read_authors">
+
+                {% for mra in most_read_users_links %}
+                    {{ mra | safe }}
+                {% endfor %}
+                
+
+            </div>
+            <hr>
+
+
+
+            <span><h3>En Çok Okunan Yazıları</h3></span>
+
+            <div class="most_read_contents">
+
+                {% for mra in most_read_contents_links %}
+                    {{ mra | safe }}
+                {% endfor %}
+                    
+                    
+
+                    
+            </div>
+            <br>
+            <hr>
+
+            <span><h3>En Çok Beğenilen Yazarları</h3></span>
+            <div class="most_liked_authors">
+
+                {% for mra in most_liked_users_links %}
+                    {{ mra | safe }}
+                {% endfor %}
+
+                
+
+            </div>
+            <hr>
+
+            <span><h3>En Çok Beğenilen Yazıları</h3></span>
+            <div class="most_liked_contents">
+
+                {% for mra in most_liked_contents_links %}
+                    {{ mra | safe }}
+                {% endfor %}
+                    
+                
+                
+        </div>
+     
+ 
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <h3>Kategoriler</h3>
+                <div class="categories-footer">
+                    <a href="{{ url_for('category_viewer', category_name='Kitap') }}">Kitap</a>
+                    <a href="{{ url_for('category_viewer', category_name='Yazılım') }}">Yazılım</a>
+                    <a href="{{ url_for('category_viewer', category_name='Teknoloji') }}">Teknoloji</a>
+                    <a href="{{ url_for('category_viewer', category_name='KısaHikaye') }}">Kısa Hikaye</a>
+                    <a href="{{ url_for('category_viewer', category_name='DiziFilm') }}">Dizi/Film</a>
+                    <a href="{{ url_for('category_viewer', category_name='TavsiyeÖneri') }}">Tavsiye/Öneri</a>
+                    <a href="{{ url_for('category_viewer', category_name='Sağlık') }}">Sağlık</a>
+                    <a href="{{ url_for('category_viewer', category_name='Günce') }}">Günlük</a>
+                    <a href="{{ url_for('category_viewer', category_name='Magazin') }}">Magazin</a>
+                    <a href="{{ url_for('category_viewer', category_name='YabancıDil') }}">Yabancı Dil</a>
+                    <a href="{{ url_for('category_viewer', category_name='Eğitim') }}">Eğitim</a>
+                    <a href="{{ url_for('category_viewer', category_name='SanatKültür') }}">Sanat/Kültür</a>
+                    <a href="{{ url_for('category_viewer', category_name='Bilim') }}">Bilim</a>
+                    <a href="{{ url_for('category_viewer', category_name='KisiselGelisim') }}">Kişisel Gelişim</a>
+                    <a href="{{ url_for('category_viewer', category_name='Oyun') }}">Oyun</a>
+                    <a href="{{ url_for('category_viewer', category_name='Seyehat') }}">Seyehat</a>
+                </div>
+            </div>
+            <div class="footer-middle">
+                <h3>Diğer</h3>
+                <a href="{{ url_for('other_page') }}">Neler Var</a>
+                <a href="{{ url_for('other_page') }}">İşbirliği</a>
+                <a href="{{ url_for('other_page') }}">İletişim</a>
+            </div>
+            <div class="footer-right">
+                <h3>Site Adı</h3>
+                <div class="instagram">
+                    <img src="{{ url_for('static', filename='pictures/insta_logo2.png') }}" alt="Instagram">
+                    <p>@adres</p>
+                </div>
+                <p><i class="fa-regular fa-envelope"></i> info@siteadi.com</p>
+                <div class="subscribe">
+                    <button><a href="{{ url_for('login') }}">Yazmaya Başla!</a></button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+    
+
+    <script>
+        window.addEventListener('load', function() {
+            var imageDiv = document.querySelector('.content-image');
+            var infoDiv = document.querySelector('.content-infos');
+    
+            var maxHeight = Math.max(imageDiv.offsetHeight, infoDiv.offsetHeight);
+    
+            imageDiv.style.height = maxHeight + 'px';
+            infoDiv.style.height = maxHeight + 'px';
+        });
+
+
+        document.getElementById('search-box').addEventListener('input', function() {
+            const searchResults = document.getElementById('search-results');
+        
+            // Eğer sonuç varsa active sınıfını ekleyerek görünür hale getiriyoruz
+            if (this.value.trim() !== "") {
+                searchResults.classList.add('active');
+            } else {
+                searchResults.classList.remove('active');
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchBox = document.getElementById('search-box');
+            const resultsContainer = document.getElementById('search-results');
+        
+            searchBox.addEventListener('input', function() {
+                const searchText = searchBox.value;  // Girilen metni al
+        
+                // Flask backend'ine POST isteği gönder
+                fetch('/search_box', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-Token': '{{ csrf_token() }}'
+                    },
+                    body: JSON.stringify({ query: searchText })  // Arama terimini JSON formatında gönder
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Önceki sonuçları temizle
+                    resultsContainer.innerHTML = '';
+        
+                    // Kullanıcı adları
+                    if (data.username_results && data.username_results.length > 0) {
+                        data.username_results.forEach(username => {
+                            const usernameResult = document.createElement('a');
+                            usernameResult.href = `/profile_user/${username}`;  // Dinamik URL
+                            usernameResult.textContent = "Profil: " + username;
+                            resultsContainer.appendChild(usernameResult);
+                           // resultsContainer.appendChild(document.createElement(''));  // Satır sonu
+                        });
+                    }
+        
+                    // İçerik adları
+                    if (data.icerik_name_results && data.icerik_name_results.length > 0) {
+                        data.icerik_name_results.forEach(result => {
+                            const icerikNameResult = document.createElement('a');
+                            icerikNameResult.href = `/alliceriks/${result.icerik_name}/${result.id}`;  // Dinamik URL
+                            icerikNameResult.textContent = "İçerik: " + result.icerik_name;
+                            resultsContainer.appendChild(icerikNameResult);
+                            //resultsContainer.appendChild(document.createElement('div'));  // Satır sonu
+                        });
+                    }
+        
+                    // Kategoriler
+                    if (data.category_results && data.category_results.length > 0) {
+                        data.category_results.forEach(category => {
+                            const categoryResult = document.createElement('a');
+                            categoryResult.href = `/category/${category}`;  // Dinamik URL
+                            categoryResult.textContent = "Kategori: " + category;
+                            resultsContainer.appendChild(categoryResult);
+                           // resultsContainer.appendChild(document.createElement('div'));  // Satır sonu
+                        });
+                    }
+        
+                    // Arama terimi girilmemişse
+                    if (data.sonuc) {
+                        const noResult = document.createElement('p');
+                        noResult.textContent = data.sonuc;
+                        resultsContainer.appendChild(noResult);
+                    }
+                })
+                .catch(error => console.error('Hata:', error));
+            });
+        });
+        
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('hamburger');
+            
+            if (hamburger) {
+                hamburger.addEventListener('click', function() {
+                    const dropdownMenu = document.getElementById('dropdown-menu');
+                    
+                    // Menüyü açmak için `open` sınıfını ekliyoruz
+                    dropdownMenu.classList.toggle('open');
+                });
+            }
+        });
+        document.getElementById("start-btn").addEventListener("click", function(){
+            document.getElementById("target").scrollIntoView({ behavior: 'smooth' });
+        });
+
+        
+
+        document.getElementById('hamburger').addEventListener('click', function() {
+            const dropdownMenu = document.getElementById('dropdown-menu');
+            
+            // Menüyü açmak için `open` sınıfını ekliyoruz
+            dropdownMenu.classList.toggle('open');
+        });
+
+
+        function toggleDropdown() {
+            const filterOptions = document.getElementById('filter-options');
+            filterOptions.classList.toggle('show');
+        }
+    
+        function toggleCategories() {
+            const categoryOptions = document.getElementById('category-options');
+            categoryOptions.classList.toggle('show');
+        }
+
+        function applyFilter(filterType) {
+            // Seçilen filtreye göre yönlendirme yapar
+            window.location.href = "/index/?sort=" + filterType;
+        }
+
+        function applyCategoryFilter() {
+            // Seçilen kategorileri al
+            const categories = Array.from(document.querySelectorAll('#category-options input:checked')).map(input => input.value);
+    
+            // Eğer kategori seçildiyse, kategoriye göre filtreleme yap
+            if (categories.length > 0) {
+                const categoryQuery = categories.join(',');
+                window.location.href = `/index/?categories=${categoryQuery}`;
+            } else {
+                // Kategori seçilmediyse "En Son" yazıları göster
+                window.location.href = "/index/?sort=latest";
+            }
+        }
+
+       
+
+        
+    </script>
+
+    <script src="{{ url_for('static', filename='all_js.js') }}"></script>
+
+   
+</body>
+<!-- Düzeltmeler;
+    Uygun fontları ayrı ayrı ayarlama
+    İsimleri verme
+    baslik ve bilgileri left ve right diye classlandır daha smooth olsun sadece içerikleri değişecek çünkü
+    son kısıma katagorilerin adı gelebilir
+    -->
+</html>

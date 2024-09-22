@@ -1,0 +1,131 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Profil Sayfası</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+	</head>
+	<body>
+		<header class="layout">
+			<div class = "profile-container">
+				<div class = "p-logo">
+					<h1><a href="{{ url_for('index') }}">SiteAdı</a></h1>
+				</div>
+                <div class="p-logout">
+                    <a href="{{ url_for('logout') }}">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </a>
+                </div>
+                
+			</div>
+		</header>
+
+        
+        <div class="profile-infos">
+
+            <div class="profile-picture">
+                <img src="{{ url_for('static', filename='profil_pictures/' + account['profile_image']) }}" alt="">
+            </div>
+
+            <div class="profile-username">
+                <span>{{ account['username'] }}</span>
+            </div>
+
+            <div class="profile-hakkinda">
+                <p class="hakkinda">
+                    {{ account['hakkinda'] }}
+                </p>
+            </div>
+
+            <div class="fal-send-like">
+
+                <div class="gonderi-sayisi">
+                    <span class="number" id="g-number">0</span>
+                    <span class="gonderi">Gönderi</span>
+                </div>
+                <div class="fallowers">
+                    <span class="number" id="f-number">0</span>
+                    <span class="takipci">Takipçi</span>
+                </div>
+                <div class="liked-number">
+                    <span class="number" id="l-number">0</span>
+                    <span class="begeni">Beğeni</span>
+
+                </div>
+            </div>
+
+            <div class="profile-duzenle">
+                <a href="{{ url_for('profil_duzenle') }}">Profil Düzenle</a>
+            </div>
+
+            <div class="profil-secenekler">
+				<a href="{{ url_for('profile') }}">Profile</a>
+				<a href="{{ url_for('taslaklar_page') }}" class="active">Taslaklar</a>
+                <a href="{{ url_for('gonderiler_page') }}">Gonderiler</a>
+			</div>
+
+        </div>
+
+        <div class="profilecontents content">
+            <h2>Taslaklar</h2>
+            <button class="plus-draft-button" onclick="createDraft()">+</button>
+            
+            <div class="all-drafts">
+                {% for linkd in draft_links %}
+                <div class="draft-item">
+                    {{ linkd|safe }}
+                </div>
+                {% endfor %}
+               
+            </div>
+        </div>
+        
+
+        
+        <script>
+            function createDraft() {
+                fetch('/PythonLogin/create-draft', {
+                    method: 'POST'
+                }).then(response => {
+                    if (response.redirected) {
+                        window.location.href = response.url;
+                    }
+                });
+            }
+
+
+            function removelink(draft_id) {
+                var element = document.getElementById(draft_id);
+                if (element) {
+                    element.remove();
+                    fetch('/PythonLogin/delete-draft', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ draft_id: draft_id })
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            return response.json();
+                        } else {
+                            throw new Error('Silme işlemi başarısız');
+                        }
+                    })
+                    .then(data => {
+                        console.log('Draft silindi:', data);
+                    })
+                    .catch(error => {
+                        console.error('Hata:', error);
+                    });
+                }
+
+            }
+
+        </script>
+	</body>
+</html>
+
+
+

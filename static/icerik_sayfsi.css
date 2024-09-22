@@ -1,0 +1,604 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: none;
+}
+a{
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+
+
+body {
+    font-family: Arial,sans-serif;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+
+
+
+main{
+    margin-left: 5%;
+    margin-top: 10%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    border: 0.3px black solid;
+    border-radius: 15px;
+    background-color: #fff;
+}
+/* Ana Container */
+
+.informations {
+    margin-top: 2%;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    justify-content: center;
+    position: relative;
+    
+
+}
+
+
+
+
+
+
+.content-creator {
+    display: flex;
+    justify-content: space-between; /* Elemanlar arasına boşluk ekler */
+    align-items: center; /* Dikey hizalamayı sağlar */
+}
+
+.liked-number {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* Bu, liked-number'ı en sağa hizalar */
+}
+
+.total_view,
+.number {
+    margin-left: 10px; /* Aralarındaki boşluğu ayarlamak için */
+}
+.content-creator span a {
+    text-decoration: none; /* Linkin altını kaldırır */
+    font-size: 1.2rem;
+    color: inherit; /* Link rengini normal metin rengiyle aynı yapar */
+}
+.yazi_container {
+    display: flex;
+    flex-direction: column; 
+    width: 100%; 
+
+    padding: 20px;
+    box-sizing: border-box;
+}
+.image {
+    display: flex;
+    width:100%
+}
+.content{
+    display: flex;
+    flex-direction: column;
+}
+.content-html {
+
+    max-width: 100%; /* Genişliği konteyner genişliğini geçmesin */
+    word-wrap: break-word; /* Uzun kelimelerin satır sonlarında kırılmasını sağlar */
+}
+img {
+    width: 100%; 
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+.cizgi{
+    width: 100%;
+    margin-top: 2%;
+    border: 1px black solid;
+}
+.info-title {
+       margin-left: 2%;
+
+}
+.info_creator{
+    margin-left: 2%;
+    margin-top: 2%; 
+    display: flex;
+    float: left;
+    
+    justify-content: space-between; 
+    align-items: center;
+}
+.creator{
+    font-size: 1.2rem;
+}
+.catagory{
+  
+    font-size: 1rem;
+    border-radius: 10px;
+    color: whitesmoke;
+    
+}
+
+.etiketler-container {
+    box-sizing: border-box;
+    padding-top: 3%;
+    display: flex;
+    width: 100%;
+    white-space: nowrap; 
+    padding-bottom: 3%;
+    border-bottom: 1px solid black;          /* Alta geçmeyi engelle */
+}
+
+.etiketler {   
+    display: inline-block;         /* Etiketler yan yana dizilir */    
+    width:25% ;
+    margin-left: 2%;
+    border-radius: 5px;            /* Kenarları yuvarla */
+    font-size: 0.9rem;   
+    box-sizing: border-box; 
+    background-color: #D8CAB8;  
+          /* Yazı boyutu */
+}
+
+
+.etiketler a {
+    
+    justify-content: center;
+    display: flex;
+    
+    box-sizing: border-box;
+    padding: 5px;
+    border-radius: 20%;
+}
+
+.yazi{
+    margin: 5% 5%;
+    display: flex;
+    flex-direction: column; 
+    width: 90%;
+    justify-content: center;
+    
+    height: auto; 
+    padding: 10px; 
+    margin-bottom: 2%; 
+}
+
+
+
+
+/* Responsive için media query */
+@media (max-width: 768px) {
+    main{
+        margin-top: 20%;
+    }
+    .content {
+        width: 100%; /* İçeriklerin genişliğini tam yapar, böylece alt alta geçerler */
+        margin-left: 0;
+    }
+    .menu {
+        display: none; /* Menüyü gizle */
+    }
+
+    .hamburger {
+        display: flex; /* Hamburger menüyü göster */
+    }
+
+    .log-in-out {
+        margin-right: 1rem;
+    }
+
+    .log-in-out span a {
+        font-size: 1.6rem;
+    }
+}
+
+
+
+
+
+.yazi_container {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+}
+
+.like-section {
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.like-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.like-btn .fa-heart {
+    color: #ccc;
+    font-size: 24px;
+}
+
+.like-btn.clicked .fa-heart {
+    color: red;
+}
+
+
+
+
+.oneriler {
+    margin-top: 5%;
+    width: 90%;
+    margin-left: 5%;
+
+    display: flex; /* Flex düzenini ekliyoruz */
+    flex-wrap: wrap; /* İçeriklerin taşmasını önlemek için wrap ekliyoruz */
+    justify-content: space-between;
+}
+
+.category-content {
+    margin-top: 2%;
+    display: flex;
+    width: 45%; /* %90 genişlik - %5 boşluklar olacak şekilde */
+ 
+   
+    box-sizing: border-box;
+    height:auto;
+    box-sizing: border-box;
+}
+
+.content-image {
+    width: 40%; /* %30 genişlik */
+    background-color: #f0f0f0; /* Görsel için arka plan */
+    box-sizing: border-box;
+    overflow: hidden; 
+    height: auto;
+    border-radius: 20px;
+    display: flex;
+}
+
+.content-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.content-infos {
+    width: 55%; /* %55 genişlik */
+    background-color: #ffffff;
+   
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    margin-left: 5%;
+}
+
+.creater-other-infos   {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.liked-number {
+    display: flex;
+    align-items: center;
+}
+
+.content-title{
+
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid black;
+
+}
+
+.content-etiket {
+    box-sizing: border-box;
+    padding-top: 3%;
+    display: flex;
+    width: 100%;
+    white-space: nowrap; 
+    padding-bottom: 3%;
+    border-bottom: 1px solid black;          /* Alta geçmeyi engelle */
+}
+
+.etiketler {   
+    display: inline-block;         /* Etiketler yan yana dizilir */    
+    width:30% ;
+    margin-left: 2%;
+    border-radius: 5px;            /* Kenarları yuvarla */
+    font-size: 0.9rem;   
+    box-sizing: border-box; 
+    background-color: #F0E4D7;  
+          /* Yazı boyutu */
+}
+
+
+.etiketler a {
+    
+    justify-content: center;
+    display: flex;
+    
+    box-sizing: border-box;
+    padding: 5px;
+    border-radius: 20%;
+
+}
+
+
+@media (max-width: 800px) {
+    .etiketler {   
+        width:30%;
+        font-size: 0.9rem;   
+
+    }
+    .etiketler a {  
+        margin-top: 2px; 
+      
+        font-size: 0.7rem;   
+
+    }
+
+
+}
+/* Responsive Design for screens smaller than 768px */
+@media (max-width: 768px) {
+    .category-container{
+        margin-top: 5%;
+    }
+    .category-content {
+        margin-top: 2%;
+        width: 100%; /* Tek bir satırda tüm genişliği kullanır */
+        margin-left: 0; /* Sol margin kaldırıldı */
+        margin-bottom: 50px; /* Alt boşluk eklendi */
+    }
+
+    .content-title a h2 {
+        font-size: 1.4rem; /* Başlık font boyutunu küçültür */
+    }
+
+    .content-infos {
+        margin-left: 5px; /* İçerik kısmının sol margin'ini kaldırır */
+    }
+
+    .content-image {
+        height: 160px; /* Görsel yüksekliğini artırır */
+    }
+
+
+    
+}
+
+
+.liked-number {
+    display: flex;
+
+    align-items: center;
+}
+.liked-number span {
+ margin: 2px;
+}
+
+
+
+.content-creater {
+    display: flex; /* Flexbox düzeni ile yatay hizalama */
+    align-items: center; /* Dikeyde ortalama */
+}
+
+.content-creater span {
+    margin-left: 2px; /* İsteğe bağlı olarak sağdaki boşluğu ayarlar */
+}
+
+
+.comment_section {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.comment_form {
+    margin-bottom: 30px;
+}
+
+.comment_form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.comment_form textarea {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    resize: none;
+}
+
+.comment_form button {
+    width: 100px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.comment_form button:hover {
+    background-color: #0056b3;
+}
+
+.comments_wrapper h2 {
+    margin-bottom: 20px;
+}
+
+.main_comment {
+    padding: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.comment_writer_infos {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.comment_writer_infos img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.comment_writer_infos span {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.main_comment_text_section {
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.comment_liked_answer_number  {
+    display: flex;
+    gap: 20px;
+    font-size: 12px;
+    color: #666;
+}
+
+.comment_liked_answer_number i {
+    margin-right: 5px;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #e0e0e0;
+}
+
+
+.answers {
+    margin-top: 10px;
+}
+
+.show_answers_button {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.show_answers_button:hover {
+    background-color: #0056b3;
+}
+
+.answer_list {
+    margin-top: 10px;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 10px;
+}
+
+.answer {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.answer_writer_infos {
+    display: flex;
+    align-items: center;
+}
+
+.answer_writer_infos img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.answer_writer_infos span {
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.answer_text {
+    margin-left: 40px;
+    font-size: 13px;
+    color: black;
+    margin-top: 3px;
+    margin-bottom: 4px;
+    box-sizing: border-box;
+}
+
+.content-creator img {
+    width: 35px; /* Resmin genişliği */
+    height: 35px; /* Resmin yüksekliği */
+    border-radius: 50%; /* Resmi yuvarlak yapar */
+    margin-right: 10px; /* Resim ve metin arasına boşluk ekler */
+}
+
+.answers {
+    margin-top: 10px;
+}
+
+.reply_form {
+    margin-top: 10px;
+}
+
+.reply_form input {
+    width: 80%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.reply_form button {
+    padding: 8px 12px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.reply_form button:hover {
+    background-color: #4cae4c;
+}

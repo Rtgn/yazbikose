@@ -1,0 +1,1200 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index-css.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM2a6M4oY4Bcypf1ZkzhVtRtPPEtwFsiq6v7Xr8" crossorigin="anonymous">
+
+</head>
+<body>
+    <header>
+        <div class = "container" id="container">
+            <div class = "logo" id="logo">
+                <h1><a href="{{ url_for('index') }}">SiteAdı</a></h1>
+            </div>
+            <nav id="menu">
+                <ul class="menu" >
+                    <li><a href="{{ url_for('index') }}">Anasayfa</a></li>
+                    <li><a href="{{ url_for('neler_var') }}">İçerikler</a></li>
+                    <li><a href="#link">Diğer</a></li>
+                </ul>
+            </nav>
+           
+            
+            
+            <div class="log-in-out" id="log-in-out">
+                {{ linkp|safe }}
+            </div>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+        </div>
+
+        <div class="dropdown-menu" id="dropdown-menu">
+            <ul>
+                <li><a href="{{ url_for('index') }}">Anasayfa</a></li>
+                <li><a href="{{ url_for('neler_var') }}">İçerikler</a></li>
+                <li><a href="#link">Diğer</a></li>
+            </ul>
+        </div>
+
+        <div class="container2">
+            <div class="slogan">
+               <div class="text"><span>Düşün</span></div>
+               <div class="text"><span>Yaz</span></div>
+               <div class="text"><span>Paylaş</span></div>
+            </div>
+            <div class="basla" id ="start-btn">
+               <a href="#link">Başla</a>
+            </div>
+        </div>
+
+    </header> 
+    <br><br>  
+    <div id="target"></div>
+    <br>
+    <main id="target">
+        <div class="main-baslik" ><h1>Neresi Burası?</h1></div>
+        <div class="main-container" >
+            <div class="left-side">
+                <div class="baslik baslik_left">
+                    <span>Hayalini Paylaş</span>
+                </div>
+
+                <div class="bilgi bilgi_left">
+                    <span>Her birimizin içinde bir hayal, 
+                        bir tutku yatıyor. Belki de bu hayal,
+                         gelecekte gerçekleştirmek istediğimiz
+                          büyük bir hedef ya da günlük yaşamımızda 
+                          bizi motive eden küçük bir arzu. Burası,
+                           hayallerinizi paylaşabileceğiniz, 
+                           ilham alabileceğiniz ve başkalarının
+                            hayallerine destek olabileceğiniz bir 
+                            platformdur. Hayalinizi burada </span>
+                </div>
+                <div class="baslik baslik_left">
+                    <span>Yolculuğunu Paylaş</span>
+                </div>
+                <div class="bilgi bilgi_left">
+                    <span>Her birimizin içinde bir hayal, 
+                        bir tutku yatıyor. Belki de bu hayal,
+                         gelecekte gerçekleştirmek istediğimiz
+                          büyük bir hedef ya da günlük yaşamımızda 
+                          bizi motive eden küçük bir arzu. Burası,
+                           hayallerinizi paylaşabileceğiniz, 
+                           ilham alabileceğiniz ve başkalarının
+                            hayallerine destek olabileceğiniz bir 
+                            platformdur. Hayalinizi burada </span>                </div>
+
+            </div>
+
+            <div class="right-side">
+                <div class="bilgi bilgi_right">
+                    <span>Her birimizin içinde bir hayal, 
+                        bir tutku yatıyor. Belki de bu hayal,
+                         gelecekte gerçekleştirmek istediğimiz
+                          büyük bir hedef ya da günlük yaşamımızda 
+                          bizi motive eden küçük bir arzu. Burası,
+                           hayallerinizi paylaşabileceğiniz, 
+                           ilham alabileceğiniz ve başkalarının
+                            hayallerine destek olabileceğiniz bir 
+                            platformdur. Hayalinizi burada </span>
+                </div>
+
+                <div class="baslik baslik_right">
+                    <span>Yeteneklerini paylaş</span>
+                </div>
+                <div class="bilgi bilgi_right">
+                    <span>Her birimizin içinde bir hayal, 
+                        bir tutku yatıyor. Belki de bu hayal,
+                         gelecekte gerçekleştirmek istediğimiz
+                          büyük bir hedef ya da günlük yaşamımızda 
+                          bizi motive eden küçük bir arzu. Burası,
+                           hayallerinizi paylaşabileceğiniz, 
+                           ilham alabileceğiniz ve başkalarının
+                            hayallerine destek olabileceğiniz bir 
+                            platformdur. Hayalinizi burada </span>
+                    </span>
+                </div>
+                <div class="baslik baslik_right">
+                    <span>Duygularını paylaş</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </main>
+
+    <div class="write_read">
+        <div class="wr">
+            <a href="{{ url_for('neler_var') }}"><div class="read">
+                <i class="fas fa-book"></i> 
+            </div>
+            </a>
+
+            <a href="{{ url_for('login') }}"><div class="write">
+                <i class="fas fa-pencil-alt"></i>
+            </div></a>
+        </div>
+        
+    </div>
+
+    <br>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <div class="site-name">SiteAdı</div>
+                <div class="categories">
+                    <h4>Kategoriler</h4>
+                    <ul>
+                        <li><a href="#">Kategori 1</a></li>
+                        <li><a href="#">Kategori 2</a></li>
+                        <li><a href="#">Kategori 3</a></li>
+                        <li><a href="#">Kategori 4</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-right">
+                <div class="contact-info">
+                    <h4>İletişim Bilgileri</h4>
+                    <p>Email: contact@siteadi.com</p>
+                    <p>Telefon: +123 456 7890</p>
+                </div>
+                <div class="additional-info">
+                    <p>&copy; 2024 SiteAdı. Tüm Hakları Saklıdır.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    
+
+    <script>
+        document.getElementById("start-btn").addEventListener("click", function(){
+            document.getElementById("target").scrollIntoView({ behavior: 'smooth' });
+        });
+
+        
+
+        document.getElementById('hamburger').addEventListener('click', function() {
+            const dropdownMenu = document.getElementById('dropdown-menu');
+            
+            // Menüyü açmak için `open` sınıfını ekliyoruz
+            dropdownMenu.classList.toggle('open');
+        });
+        
+    </script>
+
+    <script src="{{ url_for('static', filename='all_js.js') }}"></script>
+
+   
+</body>
+<!-- Düzeltmeler;
+    Uygun fontları ayrı ayrı ayarlama
+    İsimleri verme
+    baslik ve bilgileri left ve right diye classlandır daha smooth olsun sadece içerikleri değişecek çünkü
+    son kısıma katagorilerin adı gelebilir
+    -->
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+
+html{
+    scroll-behavior: smooth;
+    font-size: 15px;
+
+}
+img{
+    max-width: 100%;
+    height:auto
+}
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: none;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+
+
+body {
+    font-family: Arial,sans-serif;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Header*/
+header {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("pictures/shutterstock_1170439420-e1540562366461.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+   
+    z-index: -1;
+}
+.container {
+    display: flex; 
+    background-color: rgba(0, 0, 0, 0.9);
+    color: antiquewhite; 
+    gap: 5%;
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 12%;
+    transition: all 0.5s ease-in;
+    z-index: 1;
+    align-items: center;
+}
+.scrolled_mc {
+    background-color: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    width : 100%;
+    height: 9%;
+    
+}
+
+.container2{
+    
+    color: antiquewhite; 
+    display: flex;
+    position: absolute; 
+    margin-left:12% ;
+    margin-top: 17%;
+    flex-direction: column;
+
+}
+.text{   
+
+    font-size: 4.7rem;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    margin: 5px 0;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+    animation: .75s cubic-bezier(1,-0.01,.12,.8) 1s 1 reveal forwards;
+}
+
+.text::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #214141;
+    padding: inherit;
+    animation: .75s cubic-bezier(1,-0.01,.12,.8) 1.75s 1 hideBlack forwards;
+}
+@keyframes reveal {
+    from { clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%); }
+    to { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+  }
+  
+@keyframes hideBlack {
+    from { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+    to { clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%); }
+  }
+.slogan{
+    flex-direction: column;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    font-family: "Playfair Display", serif;    
+}
+.slogan * {
+    margin: 5px;
+}
+.basla{
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    margin: 10px 0;
+    
+    background-color: rgba(29, 124, 153, 0.2);
+    
+}
+.basla:hover{
+    transform: scale(1.01); /* Biraz büyütme efekti */
+    background-color: rgba(31, 82, 83, 0.6);
+    border-color: #52CBC2; /* Parlak sarı kenar */
+    box-shadow: 0 0 20px rgba(82, 203, 194, 0.5), 0 0 20px rgba(82, 203, 194, 0.3);
+
+}
+
+
+.basla a {
+    display: block;
+    font-size: 3rem;
+    color: aliceblue;
+    font-family: "Ubuntu", sans-serif;
+    
+}
+
+
+.logo{
+    float: left; 
+    width: 20%;
+    margin-left: 3%;
+    margin-top: 1.4%;
+    transition: all 0.5s ease-in;
+    font-family: "Ubuntu", sans-serif;
+}
+.logo.scrolled_ls h1 a {
+    font-size: 2rem;
+}
+.logo.scrolled_ls{
+    margin-top: 1.1%;
+}
+.logo h1{
+    margin:0;
+}
+.logo h1 a{
+    font-size: 2.5rem;
+    color:aliceblue;
+    transition: all 0.5s ease-in;
+}
+nav {
+    width: 40%;
+    transition: all 0.5s ease-in;
+    margin-top: 1.7%;
+}
+.menu {
+    display: flex;
+    gap: 20px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;}
+
+.menu li{
+    float:left;
+    margin:10px;
+    margin-left: 10%;
+    transition: all 0.5s ease-in;
+}
+
+.menu li a{
+    font-family: "Ubuntu", sans-serif;
+    font-size: 1.5rem;
+    color: aliceblue;
+    display: block;/*Sadece metin alanına değil tüm link alanını tıklanabilir yaparsın*/
+}
+.menu li a:hover{
+    color: #4d9c9c;
+}
+.scrolled_mi .menu li  {
+    margin-left: 15%;
+}
+.scrolled_mi {
+    width: 50%;
+    margin-top: 0.6%;
+}
+.profile-image-container{
+    width: 50px;
+    height: 50px;
+
+    float: left;
+    height: auto;
+    overflow: hidden; /* Taşan içeriği gizler */
+     /* Kapsayıcıyı yuvarlak yapar */
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin-left: 15%;
+
+}
+
+.username span{
+
+    font-size: 2rem;
+    font-family: "Ubuntu", sans-serif;
+ 
+}
+.username{ 
+    margin-left: 5%;
+    margin-top: 4%;
+    float: left;
+    width: 60%;
+}
+
+.log-in-out{
+    width: 24%;
+    float: left;
+    margin-top: 1.6%;
+}
+.log-in-out span a{
+    color: aliceblue;
+    float: left;
+    margin-left: 50%;
+   
+    font-size: 1.5rem;
+    transition: all 0.5s ease-in;
+    font-family: "Ubuntu", sans-serif;
+}
+.scrolled_lio span a{
+    font-size: 1.5rem;
+    margin-left: 50%;
+
+}
+
+/*Main*/
+main{ 
+    margin-top: 7%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;/*Bunu içindeki öğreleri alt alta koymak istediğin  kutuya koyuyorsun*/
+}
+.main-container{
+    display: flex;
+    width: 70%;
+    margin-left: 15%;
+ 
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+
+.main-baslik {
+
+    width: 100%;
+    text-align: center;
+    position: relative;
+    margin-bottom: 20px;
+    font-family: "Playfair Display", serif; 
+}
+
+
+.main-baslik::before,
+.main-baslik::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 25%; /* Çizgilerin uzunluğu */
+    height: 1px; /* Çizgilerin kalınlığı */
+    background-color: black; /* Çizgilerin rengi */
+    z-index: -1; /* Yazının arkasında kalır */
+}
+
+.main-baslik::before {
+    left: 10%; /* Sol çizgi */
+}
+
+.main-baslik::after {
+    right: 10%; /* Sağ çizgi */
+}
+
+h1 {
+    display: inline; /* Başlığı satır içi eleman yapar */
+    padding: 0 20px; /* Çizgiler ile başlık arasında boşluk */
+}
+
+
+.left-side {
+    width: 49.5%;
+    display: flex;
+    flex-direction: column;
+    margin-right: 0.3%;
+
+}
+.right-side {
+    width: 49.5%;
+    display: flex;
+    flex-direction: column;   
+}
+
+.baslik_left {
+    background-color: rgba(31, 82, 83, 0.6);
+  /*#52CBC2*/
+}
+
+.baslik_right{
+    color: whitesmoke;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.baslik{
+    display: flex;
+    position: relative;
+    width: 100%;
+    padding-top: 20%;
+    margin-top: 20px;
+}
+
+.baslik span{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* İçeriği ortalar */
+    text-align: center; /* Yazıyı ortalar */
+    width: 100%;
+
+}
+
+.bilgi {
+    text-align: center;
+    width: 100%;
+    padding-top: 75%;
+    position: relative;
+    box-sizing: border-box; 
+    margin-top: 20px;
+}
+.bilgi span{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* İçeriği ortalar */
+    text-align: center; /* Yazıyı ortalar */
+    width: 100%;
+
+}
+.bilgi_left {
+
+    color: whitesmoke;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.bilgi_right {
+    background-color: rgba(31, 82, 83, 0.6);
+}
+
+
+.end-section {
+    margin-top: 100px;
+    width: 100%;
+    height: auto;
+    background-color: #214141;
+    text-align: center;
+}
+
+
+
+
+.write_read {
+    width: 100%;
+    height: 300px;
+    margin-top: 8%;
+}
+
+.wr {
+    display: flex; /* Flexbox ile yan yana getirmek için */
+    justify-content: space-between; /* Eşit boşluk bırakılması için */
+    width: 60%;
+    margin: 0 auto; /* Ortalamak için */
+}
+
+.wr a {
+    width: 48%; /* Yan yana durabilmesi için genişlik ayarı */
+    text-decoration: none; /* Link alt çizgilerini kaldırmak için */
+}
+
+.read, .write {
+    transition: all 0.2s ease-in;
+    background-color: #214141;
+    border-radius: 10%;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px; /* Iconların boyutunu büyütme */
+    color: #fff;
+}
+
+.read i, .write i {
+    font-size: 80px; /* Icon boyutunu büyütme */
+    transition: all 0.2s ease-in;
+}
+
+.read:hover, .write:hover {
+    transform: scale(1.01); /* Biraz büyütme efekti */
+    background-color: rgba(31, 82, 83, 0.6);
+    border-color: #52CBC2; /* Parlak sarı kenar */
+    box-shadow: 0 0 20px rgba(82, 203, 194, 0.5), 0 0 20px rgba(82, 203, 194, 0.3);
+
+}
+.read:hover i, .write:hover i {
+    color: rgba(0, 0, 0, 0.69); 
+}
+
+
+
+
+
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    margin-top: 2%;
+    margin-right: 2%;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: aliceblue;
+
+}
+
+/* Dropdown Menü */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top:10%;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 1rem;
+    border-radius: 5px;
+    z-index: 1;
+}
+.scrolled_dm{
+    position: fixed;
+
+}
+.dropdown-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.dropdown-menu ul li {
+    margin-bottom: 1rem;
+}
+
+.dropdown-menu ul li a {
+    color: aliceblue;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+/* Responsive için media query */
+@media (max-width: 768px) {
+    .container2{
+        margin-top: 35%;
+    }
+    .text{   
+    
+        font-size: 4rem;
+    }
+    .main-container{
+        width: 90%;
+        margin-left: 5%;
+        
+    }
+    .menu {
+        display: none; /* Menüyü gizle */
+    }
+
+    .hamburger {
+        display: flex; /* Hamburger menüyü göster */
+    }
+
+    .log-in-out {
+        margin-right: 1rem;
+    }
+
+    .log-in-out span a {
+        font-size: 1.6rem;
+    }
+}
+.dropdown-menu.open {
+    display: block;
+}
+/* Açılır menüyü göstermek için */
+#hamburger.open + #dropdown-menu {
+    display: block;
+}
+
+@media (max-width: 480px) {
+    .logo h1 a {
+        font-size: 1.8rem;
+    }
+
+    .log-in-out {
+        width: 50%;
+    }
+
+    .menu li a {
+        font-size: 1.2rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+footer {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-left, .footer-right {
+    flex: 1;
+    margin-right: 20px; /* Sağ ve sol alanlar arasındaki boşluk */
+}
+
+.site-name {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.categories ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.categories li {
+    margin-bottom: 5px;
+}
+
+.categories a {
+    text-decoration: none;
+    color: #333;
+}
+
+.categories a:hover {
+    text-decoration: underline;
+}
+
+.contact-info h4, .categories h4 {
+    margin-bottom: 10px;
+}
+
+.additional-info {
+    text-align: right;
+}
+
+.additional-info p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #666;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='drafts_style.css') }}">
+
+</head>
+<body>
+        <!--Burada profil sayfasındaki manu olucak ve çıkışın yanında profil sayfası linki de olucak-->
+        <div class="kaydet">
+            <input class="kaydet-buton" type="submit" value="Kaydet">
+        </div>
+        <div class="form-container">
+            <form action="/PythonLogin/submit" method="post" enctype="multipart/form-data">
+                <div class="input-container">
+                    <label>Etiketler:</label>
+                    <div class="checkbox-container">
+                        <label><input type="checkbox" name="etiketler" value="Yazılım"> Yazılım</label>
+                        <label><input type="checkbox" name="etiketler" value="Kitap"> Kitap</label>
+                        <label><input type="checkbox" name="etiketler" value="Dizi/Film"> Dizi/Film</label>
+                        <label><input type="checkbox" name="etiketler" value="Tavsiye/Öneri"> Tavsiye/Öneri</label>
+                        <label><input type="checkbox" name="etiketler" value="Teknoloji"> Teknoloji</label>
+                        <label><input type="checkbox" name="etiketler" value="İncelemeler">İncelemeler</label>
+                    </div>
+                </div>
+                <div class="input-container">
+                    <input  class="inputs-l imageUp" type="file" name= 'imageUpload' id = "ilkresim railk" accept="image/*">
+                </div>
+                
+                <div class="input-container" >
+                    <input class="inputs-l" type="text" id="Başlık" name="baslik" placeholder="Ana Başlık" required>
+                </div>
+                
+                
+                <div id="dynamicContainer">
+
+                    {% for inputy in all_inputs %}
+                        {{ inputy | safe }}
+                    {% endfor %}
+
+                </div>
+                
+                <br><br>
+
+                <input class="gonder-buton" type="submit" value="Gönder">
+                <!--inputlar ve brler gelicek
+                <input class="gonder-buton" type="submiticerik" value="Gönder">-->
+                <!--<a class="cc yayinla" onclick="yayinla()" href="{{ url_for('profile') }}">Yayınla</a>-->
+            </form>
+        </div>
+        <br><br>
+    
+      
+        <button class="plus-button" onclick="toggleOptions()">+</button>
+
+    
+        <!--Burası görünmez-->
+        <div class="options-container" id="options">
+            <button class="close-button" onclick="toggleOptions()">×</button>
+            <ul>
+                <li><a href="#" id="buyukBaslik">Büyük Başlık</a></li>
+                <li><a href="#" id="ortaBaslik">Orta Başlık</a></li>
+                <li><a href="#" id="küçükBaslik">Küçük Başlık</a></li>
+                <li><a href="#" id="MetinAlani">Metin Alanı</a></li>
+                <li><a href="#" id="Resim">Resim</a></li>
+            </ul>
+        </div>
+        <script>  
+
+            function toggleOptions() {
+                const options = document.getElementById('options');
+                options.style.display = options.style.display === 'block' ? 'none' : 'block';
+            }
+            let bbid = 0;
+            let kbid = 0;
+            let obid = 0;
+            let maid = 0;
+            let raid = 0;
+
+
+            document.getElementById('buyukBaslik').addEventListener('click', function(event) {
+                event.preventDefault();    
+                bbid++;
+            
+                let inputContainer = document.createElement('div');    
+                let buyukBaslik = document.createElement('input');
+                let closeInput = document.createElement('a');
+            
+                inputContainer.className = "input-container newinput";
+                //inputContainer.id = "bb" + bbid;
+            
+                buyukBaslik.name = "bb" + bbid;
+                buyukBaslik.type = 'text';
+                buyukBaslik.className = 'inputs-l';
+                buyukBaslik.placeholder = "Büyük Başlık";
+            
+                
+                closeInput.className = "cc";
+                closeInput.innerHTML = "X";
+                closeInput.onclick = function() {
+                    inputContainer.remove();
+                };
+            
+                inputContainer.appendChild(buyukBaslik);
+                inputContainer.appendChild(closeInput);
+            
+                document.getElementById('dynamicContainer').appendChild(inputContainer);
+            });
+
+            document.getElementById('ortaBaslik').addEventListener('click', function(event){
+                event.preventDefault(); 
+                obid++;
+            
+                let inputContainer = document.createElement('div');    
+                let ortaBaslik = document.createElement('input');
+                let closeInput = document.createElement('a');
+            
+                inputContainer.className = "input-container newinput";
+               // inputContainer.id = "ob" + obid;
+            
+                ortaBaslik.name = "ob" + obid;
+                ortaBaslik.type='text';
+                ortaBaslik.className = 'inputs-l';
+                ortaBaslik.placeholder = "Orta Başlık";
+            
+                
+                closeInput.className = "cc";
+                closeInput.innerHTML = "X";
+                closeInput.onclick = function() {
+                    inputContainer.remove();
+                };
+            
+                inputContainer.appendChild(ortaBaslik);
+                inputContainer.appendChild(closeInput);
+            
+                document.getElementById('dynamicContainer').appendChild(inputContainer);
+            });
+
+            document.getElementById('küçükBaslik').addEventListener('click', function(event){
+                event.preventDefault();            
+                kbid++;
+            
+                let inputContainer = document.createElement('div');    
+                let küçükBaslik = document.createElement('input');
+                let closeInput = document.createElement('a');
+            
+                inputContainer.className = "input-container newinput";
+               // inputContainer.id = "kb" + kbid;
+            
+                küçükBaslik.name = "kb" + kbid;
+                küçükBaslik.type='text';
+                küçükBaslik.className = 'inputs-l';
+                küçükBaslik.placeholder = "Küçük Başlık";
+            
+                
+                closeInput.innerHTML = "X";
+                closeInput.className = "cc";
+                closeInput.onclick = function() {
+                    inputContainer.remove();
+                };
+            
+                inputContainer.appendChild(küçükBaslik);
+                inputContainer.appendChild(closeInput);
+            
+                document.getElementById('dynamicContainer').appendChild(inputContainer);
+            });
+
+            document.getElementById('MetinAlani').addEventListener('click', function(event){
+                event.preventDefault();      
+                maid++;
+            
+                let inputContainer = document.createElement('div');    
+                let MetinAlani = document.createElement('input');
+                let closeInput = document.createElement('a');
+            
+                inputContainer.className = "input-container newinput";
+                //inputContainer.id = "ma" + maid;
+            
+                MetinAlani.name = "ma" + maid;
+                MetinAlani.type='text';
+                MetinAlani.classList.add('inputs-l','metin')
+                MetinAlani.placeholder = "Metin Alanı";
+            
+                
+                closeInput.className = "cc";
+                closeInput.innerHTML = "X";
+                closeInput.onclick = function() {
+                    inputContainer.remove();
+                };
+            
+                inputContainer.appendChild(MetinAlani);
+                inputContainer.appendChild(closeInput);
+            
+                document.getElementById('dynamicContainer').appendChild(inputContainer);
+            });
+
+            document.getElementById('Resim').addEventListener('click', function(event){
+                event.preventDefault();          
+                raid++;
+            
+                let inputContainer = document.createElement('div');    
+                let Resim= document.createElement('input');
+                let closeInput = document.createElement('a');
+            
+                inputContainer.className = "input-container";
+                //inputContainer.id = "ra" + raid;
+            
+                Resim.name="ra"; 
+                Resim.type='file';
+                Resim.className = 'inputs-l imageUp';
+                Resim.accept ="image/*";
+            
+               
+                closeInput.className = "cc";
+                closeInput.innerHTML = "X";
+                closeInput.onclick = function() {
+                    inputContainer.remove();
+                };
+            
+                inputContainer.appendChild(Resim);
+                inputContainer.appendChild(closeInput);
+            
+                document.getElementById('dynamicContainer').appendChild(inputContainer);
+            });
+            let currentUrl = window.location.href;
+            let draft_name = currentUrl.substring(currentUrl.lastIndexOf('/') + 1);
+            let draftId = draft_name.substring(draft_name.indexOf('_') + 1, draft_name.lastIndexOf('.'));
+            
+            function viewDraft(draft_name) {
+                fetch(`/PythonLogin/drafts/${draft_name}`, {
+                    method: 'POST'
+                }).then(response => {
+                    if (response.redirected) {
+                        window.location.href = response.url;
+                    }
+                }).catch(error => {
+                    console.error('Error:', error);
+                });
+            }
+            
+            
+            document.querySelector('.kaydet-buton').addEventListener('click', function(event) {
+                event.preventDefault();
+                //let currentUrl = window.location.href;
+                //let filename = currentUrl.substring(currentUrl.lastIndexOf('/') + 1);
+                //let draftId = filename.substring(filename.indexOf('_') + 1, filename.lastIndexOf('.'));
+
+                let inputDivs = document.querySelectorAll('.newinput');
+            
+                let inputData=[];
+            
+                inputDivs.forEach(function(div) {
+                    let divId = div.id; // Dinamik div'in ID'si
+                    let input = div.querySelector('.inputs-l'); // İçindeki input elemanı
+                    let inputValue = input.value;
+                
+                    inputData.push({ div_id: divId, input_value: inputValue });
+                });
+            
+                fetch('/PythonLogin/save_inputs', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ draft_id: draftId, inputData: inputData  })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                })
+                .catch((error) => {
+                    console.error('Errorrrr:', error);
+                });
+            });
+
+            function removeInput(divId) {
+                var element = document.getElementById(divId);
+                if (element) {
+                    element.remove();
+
+                    
+                }
+            }
+
+            let titleinput = document.querySelector('#title input');
+            let titleValue = titleinput.value; // title input'un değerini alıyoruz
+            
+            function icerikac(titleValue) {
+                fetch(`/PythonLogin/icerik_ac/${titleValue}`, {
+                    method: 'POST'
+                }).then(response => {
+                    if (response.redirected) {
+                        window.location.href = response.url;
+                    }
+                }).catch(error => {
+                    console.error('Error:', error);
+                });
+            }
+
+
+            function yayinla() {
+                let soninputDivs = document.querySelectorAll('.input-container');
+                let soninputData = [];
+                 
+                
+                // 'title' id'sine sahip div içindeki input elementine ulaşıyoruz
+                let titleinput = document.querySelector('#title input');
+                let titleValue = titleinput.value; // title input'un değerini alıyoruz
+            
+                soninputDivs.forEach(function(div) {
+                    let divId = div.id;
+                    let input = div.querySelector('.inputs-l');
+                    let inputValue = input.value;
+                    inputValue = inputValue.replace(/\\/g, '/');
+                    soninputData.push({ div_id: divId, input_value: inputValue });
+                });
+            
+                fetch('/PythonLogin/submiticerik', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ soninputData: soninputData, titleValue: titleValue })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+            }
+
+
+
+
+
+        </script>
+    
+</body>
+</html>
